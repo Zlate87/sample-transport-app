@@ -1,4 +1,4 @@
-package com.zlate87.sample_transport_app.base.helper;
+package com.zlate87.sample_transport_app.base.service;
 
 import android.content.Context;
 import android.util.Log;
@@ -12,14 +12,14 @@ import java.io.InputStreamReader;
  * A helper class responsible for reading files.
  */
 // TODO: 12/29/2015 add tests
-public class FileReaderHelper {
+public class FileReaderService {
 
 	public static final String DEFAULT_ENCODING = "UTF-8";
-	private static final String TAG = FileReaderHelper.class.getSimpleName();
+	private static final String TAG = FileReaderService.class.getSimpleName();
 
 	private Context context;
 
-	public FileReaderHelper(Context context) {
+	public FileReaderService(Context context) {
 		this.context = context;
 	}
 

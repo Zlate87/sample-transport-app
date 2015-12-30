@@ -15,10 +15,11 @@ android {
 	productFlavors {
 		// this flavor will use dummy data instead of communicating with a real backend
 		dummyData {
-
+			applicationIdSuffix ".dummydata"
 		}
 
 		production {
+			applicationIdSuffix ".production"
 		}
 	}
 
@@ -30,13 +31,21 @@ android {
 	}
 }
 
+// Android APT plugin needed for Dagger 2
+apply plugin: 'com.neenbedankt.android-apt'
+
 dependencies {
 	// Android support libraries
-	compile 'com.android.support:appcompat-v7:23.1.1'
+	compile "com.android.support:appcompat-v7:$comAndroidSupport"
 
 	// JSON library
-	compile 'com.squareup.moshi:moshi:1.0.0'
+	compile "com.squareup.moshi:moshi:$comSquareupMoshi_moshi"
 
+	// dagger, used for dependencies injection
+	compile "com.google.dagger:dagger:$comGoogleDagger"
+	apt "com.google.dagger:dagger-compiler:$comGoogleDagger"
+	provided "org.glassfish:javax.annotation:$orgGlassfish_javaxAnnotation"
 
-	testCompile 'junit:junit:4.12'
+	// JUnit test dependencies
+	testCompile "junit:junit:$junit_junit"
 }

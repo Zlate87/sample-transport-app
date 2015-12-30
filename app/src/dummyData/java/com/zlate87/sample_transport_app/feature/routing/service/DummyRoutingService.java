@@ -1,10 +1,10 @@
 package com.zlate87.sample_transport_app.feature.routing.service;
 
-import android.content.Context;
-
-import com.zlate87.sample_transport_app.base.helper.FileReaderHelper;
+import com.zlate87.sample_transport_app.base.service.FileReaderService;
 import com.zlate87.sample_transport_app.feature.routing.model.RouteQueryParameters;
 import com.zlate87.sample_transport_app.feature.routing.model.RouteResponse;
+
+import javax.inject.Inject;
 
 /**
  * A dummy implementation of a {@code RoutingService} class.
@@ -15,22 +15,22 @@ public class DummyRoutingService extends AbstractJsonRoutingServer {
 
 	public static final String PATH_TO_DUMMY_JSON_FILE = "data.json";
 
-	// TODO: 12/29/2015 inject?
-	private FileReaderHelper fileReaderHelper;
+	private FileReaderService fileReaderService;
 
 	/**
 	 * Constructor.
 	 *
-	 * @param context the context
+	 * @param fileReaderService the fileReaderService
 	 */
-	public DummyRoutingService(Context context) {
-		fileReaderHelper = new FileReaderHelper(context);
+	@Inject
+	public DummyRoutingService(FileReaderService fileReaderService) {
+		this.fileReaderService = fileReaderService;
 	}
 
 	@Override
 	public RouteResponse route(RouteQueryParameters routeQueryParameters) {
 		// TODO: 12/29/2015 LOG
-		String routeResponseJson = fileReaderHelper.readTextFileFromAssets(PATH_TO_DUMMY_JSON_FILE);
+		String routeResponseJson = fileReaderService.readTextFileFromAssets(PATH_TO_DUMMY_JSON_FILE);
 		return deserializeJson(routeResponseJson);
 	}
 }
