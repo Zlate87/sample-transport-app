@@ -11,9 +11,6 @@ import java.io.IOException;
  */
 public abstract class AbstractJsonRoutingServer implements RoutingService {
 
-	// TODO: 12/29/2015 injection?
-	private Moshi moshi = new Moshi.Builder().build();
-
 	/**
 	 * Method that will deserialize a JSON string into {@code RouteResponse}.
 	 *
@@ -23,6 +20,7 @@ public abstract class AbstractJsonRoutingServer implements RoutingService {
 	 * @throws RuntimeException if there is a problem with the deserialization of the JSON.
 	 */
 	protected RouteResponse deserializeJson(String routeResponseJson) {
+		Moshi moshi = new Moshi.Builder().build();
 		JsonAdapter<RouteResponse> jsonAdapter = moshi.adapter(RouteResponse.class);
 		try {
 			return jsonAdapter.fromJson(routeResponseJson);

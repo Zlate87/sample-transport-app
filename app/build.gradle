@@ -29,6 +29,10 @@ android {
 			proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 		}
 	}
+
+	sourceSets {
+		main.java.srcDirs += 'src/main/generated'
+	}
 }
 
 // Android APT plugin needed for Dagger 2
@@ -46,6 +50,12 @@ dependencies {
 	apt "com.google.dagger:dagger-compiler:$comGoogleDagger"
 	provided "org.glassfish:javax.annotation:$orgGlassfish_javaxAnnotation"
 
+	// guava, used for reading files
+	compile "com.google.guava:guava:$comGoogleGuava_guava"
+
 	// JUnit test dependencies
 	testCompile "junit:junit:$junit_junit"
+	testCompile "org.robolectric:robolectric:$orgRobolectric_robolectric"
+	testCompile "org.mockito:mockito-core:$orgMockito_mockitoCore"
+	testCompile "org.hamcrest:hamcrest-core:$orgHamcrest_hamcrestCore"
 }
