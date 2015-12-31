@@ -13,7 +13,7 @@ import dagger.Provides;
 /**
  * Dagger 2 module.
  */
-@Module
+@Module(includes = BaseModule.class)
 public class DummyDataModule {
 
 	private final App app;

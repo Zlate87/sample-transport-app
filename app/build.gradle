@@ -1,5 +1,8 @@
 apply plugin: 'com.android.application'
 
+//Gradle Retrolambda Plugin
+apply plugin: 'me.tatarka.retrolambda'
+
 android {
 	compileSdkVersion 23
 	buildToolsVersion "23.0.2"
@@ -52,6 +55,10 @@ dependencies {
 
 	// guava, used for reading files
 	compile "com.google.guava:guava:$comGoogleGuava_guava"
+
+	// rx android
+	compile "io.reactivex:rxandroid:$ioReactivex_rxandroid"
+	compile "io.reactivex:rxjava:$ioReactivex_rxjava"
 
 	// JUnit test dependencies
 	testCompile "junit:junit:$junit_junit"
