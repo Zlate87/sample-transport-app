@@ -1,7 +1,7 @@
 package com.zlate87.sample_transport_app.base.injection;
 
 import com.zlate87.sample_transport_app.feature.routing.controller.LoadRouteActivity;
-import com.zlate87.sample_transport_app.feature.routing.controller.RoutesListActivity;
+import com.zlate87.sample_transport_app.feature.routing.controller.RoutesPreviewActivity;
 
 /**
  * Dagger component interface.
@@ -20,5 +20,5 @@ public interface BaseComponent {
 	 *
 	 * @param target the target
 	 */
-	void inject(RoutesListActivity target);
+	void inject(RoutesPreviewActivity target);
 }

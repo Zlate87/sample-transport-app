@@ -3,4 +3,9 @@
 	<string name="route">route</string>
 	<string name="routing_selectRouteActivity_introText">Sorry, no selection of a route is available at this time. You will only get one pre-defined dummy route.</string>
 	<string name="routing_validationMessage_noValidRoutesFound">Sorry, but we did not find any route for you :(.</string>
+	<string name="public_transport">Public Transport</string>
+	<string name="car_sharing">Car Sharing</string>
+	<string name="private_bike">Private Bike</string>
+	<string name="bike_sharing">Bike Sharing</string>
+	<string name="taxi">Taxi</string>
 </resources>

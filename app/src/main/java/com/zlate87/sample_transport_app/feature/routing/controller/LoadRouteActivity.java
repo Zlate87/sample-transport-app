@@ -17,14 +17,14 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 import rx.schedulers.Schedulers;
 
-import static com.zlate87.sample_transport_app.feature.routing.controller.RoutesListActivity.ROUTE_RESPONSE_INTENT_EXTRA_KEY;
+import static com.zlate87.sample_transport_app.feature.routing.controller.RoutesPreviewActivity.ROUTE_RESPONSE_INTENT_EXTRA_KEY;
 
 /**
  * Activity class responsible for loading the selected route.
  */
 public class LoadRouteActivity extends BaseActivity {
 
-	private static final String TAG = RoutesListActivity.class.getSimpleName();
+	private static final String TAG = RoutesPreviewActivity.class.getSimpleName();
 
 	/**
 	 * Intent extra key for the {@code RouteQueryParameters} that should be used when loading the route.
@@ -43,7 +43,7 @@ public class LoadRouteActivity extends BaseActivity {
 		@Override
 		public void call(RouteResponse routeResponse) {
 			Log.v(TAG, "routeResponseAction.call(RouteResponse): called");
-			Intent loadRoutesActivityIntent = new Intent(LoadRouteActivity.this, RoutesListActivity.class);
+			Intent loadRoutesActivityIntent = new Intent(LoadRouteActivity.this, RoutesPreviewActivity.class);
 			loadRoutesActivityIntent.putExtra(ROUTE_RESPONSE_INTENT_EXTRA_KEY, routeResponse);
 			startActivity(loadRoutesActivityIntent);
 		}

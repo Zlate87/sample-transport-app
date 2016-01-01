@@ -9,7 +9,7 @@ import javax.annotation.Generated;
 public class Price implements Serializable {
 
     private String currency;
-    private Integer amount;
+    private int amount;
 
     /**
      * 
@@ -34,7 +34,7 @@ public class Price implements Serializable {
      * @return
      *     The amount
      */
-    public Integer getAmount() {
+    public int getAmount() {
         return amount;
     }
 
@@ -43,7 +43,7 @@ public class Price implements Serializable {
      * @param amount
      *     The amount
      */
-    public void setAmount(Integer amount) {
+    public void setAmount(int amount) {
         this.amount = amount;
     }
 

@@ -37,6 +37,11 @@ android {
 	lintOptions {
 		warning 'InvalidPackage'
 	}
+
+	packagingOptions {
+		exclude 'META-INF/LICENSE.txt'
+		exclude 'META-INF/NOTICE.txt'
+	}
 }
 
 // Android APT plugin needed for Dagger 2
@@ -45,6 +50,7 @@ apply plugin: 'com.neenbedankt.android-apt'
 dependencies {
 	// Android support libraries
 	compile "com.android.support:appcompat-v7:$comAndroidSupport"
+	compile "com.android.support:design:$comAndroidSupport"
 
 	// JSON library
 	compile "com.squareup.moshi:moshi:$comSquareupMoshi_moshi"
@@ -61,9 +67,13 @@ dependencies {
 	compile "io.reactivex:rxandroid:$ioReactivex_rxandroid"
 	compile "io.reactivex:rxjava:$ioReactivex_rxjava"
 
+	// joda time
+	compile "net.danlew:android.joda:$jodaTime"
+
 	// JUnit test dependencies
 	testCompile "junit:junit:$junit_junit"
 	testCompile "org.robolectric:robolectric:$orgRobolectric_robolectric"
 	testCompile "org.mockito:mockito-core:$orgMockito_mockitoCore"
 	testCompile "org.hamcrest:hamcrest-core:$orgHamcrest_hamcrestCore"
+	testCompile "joda-time:joda-time:$jodaTime"
 }

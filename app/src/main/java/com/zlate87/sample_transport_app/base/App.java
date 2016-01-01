@@ -4,8 +4,10 @@ import android.app.Application;
 
 import com.zlate87.sample_transport_app.base.injection.BaseComponent;
 
+import net.danlew.android.joda.JodaTimeAndroid;
+
 /**
- * Created by Zlatko on 12/30/2015.
+ * Application class.
  */
 public abstract class App extends Application {
 
@@ -26,6 +28,7 @@ public abstract class App extends Application {
 	public void onCreate() {
 		super.onCreate();
 		instance = this;
+		JodaTimeAndroid.init(this);
 	}
 
 	public static App getInstance() {
