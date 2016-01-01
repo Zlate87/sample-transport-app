@@ -10,36 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91b83f44-98b7-41a5-9524-bb4dde1dd811" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/zlate87/sample_transport_app/base/controller/BaseActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/zlate87/sample_transport_app/feature/routing/controller/LoadRouteActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/zlate87/sample_transport_app/feature/routing/model/RouteValidationResult.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/zlate87/sample_transport_app/feature/routing/controller/SelectRouteActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/zlate87/sample_transport_app/feature/routing/service/ValidationService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/test/java/com/zlate87/sample_transport_app/feature/routing/service/ValidationServiceTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/routing_load_route_activity.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/routing_select_route_activity.xml" />
-      <change type="MOVED" beforePath="C:\workspace\sample-transport-app\app\src\main\java\com\zlate87\sample_transport_app\MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/zlate87/sample_transport_app/feature/routing/controller/RoutesListActivity.java" />
-      <change type="MOVED" beforePath="C:\workspace\sample-transport-app\app\src\main\res\layout\activity_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/routing_routes_list_activity.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/zlate87/sample_transport_app/base/injection/BaseComponent.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/zlate87/sample_transport_app/base/injection/BaseComponent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/zlate87/sample_transport_app/base/injection/BaseModule.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/zlate87/sample_transport_app/base/injection/BaseModule.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/generated/com/zlate87/sample_transport_app/feature/routing/model/Callabike.java" afterPath="$PROJECT_DIR$/app/src/main/generated/com/zlate87/sample_transport_app/feature/routing/model/Callabike.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/generated/com/zlate87/sample_transport_app/feature/routing/model/Car2go.java" afterPath="$PROJECT_DIR$/app/src/main/generated/com/zlate87/sample_transport_app/feature/routing/model/Car2go.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/generated/com/zlate87/sample_transport_app/feature/routing/model/Company.java" afterPath="$PROJECT_DIR$/app/src/main/generated/com/zlate87/sample_transport_app/feature/routing/model/Company.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/generated/com/zlate87/sample_transport_app/feature/routing/model/Drivenow.java" afterPath="$PROJECT_DIR$/app/src/main/generated/com/zlate87/sample_transport_app/feature/routing/model/Drivenow.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/generated/com/zlate87/sample_transport_app/feature/routing/model/Google.java" afterPath="$PROJECT_DIR$/app/src/main/generated/com/zlate87/sample_transport_app/feature/routing/model/Google.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/generated/com/zlate87/sample_transport_app/feature/routing/model/Nextbike.java" afterPath="$PROJECT_DIR$/app/src/main/generated/com/zlate87/sample_transport_app/feature/routing/model/Nextbike.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/generated/com/zlate87/sample_transport_app/feature/routing/model/Price.java" afterPath="$PROJECT_DIR$/app/src/main/generated/com/zlate87/sample_transport_app/feature/routing/model/Price.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/generated/com/zlate87/sample_transport_app/feature/routing/model/Properties.java" afterPath="$PROJECT_DIR$/app/src/main/generated/com/zlate87/sample_transport_app/feature/routing/model/Properties.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/generated/com/zlate87/sample_transport_app/feature/routing/model/Provider_attributes.java" afterPath="$PROJECT_DIR$/app/src/main/generated/com/zlate87/sample_transport_app/feature/routing/model/Provider_attributes.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/generated/com/zlate87/sample_transport_app/feature/routing/model/Route.java" afterPath="$PROJECT_DIR$/app/src/main/generated/com/zlate87/sample_transport_app/feature/routing/model/Route.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/zlate87/sample_transport_app/feature/routing/model/RouteQueryParameters.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/zlate87/sample_transport_app/feature/routing/model/RouteQueryParameters.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/generated/com/zlate87/sample_transport_app/feature/routing/model/RouteResponse.java" afterPath="$PROJECT_DIR$/app/src/main/generated/com/zlate87/sample_transport_app/feature/routing/model/RouteResponse.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/generated/com/zlate87/sample_transport_app/feature/routing/model/Segment.java" afterPath="$PROJECT_DIR$/app/src/main/generated/com/zlate87/sample_transport_app/feature/routing/model/Segment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/generated/com/zlate87/sample_transport_app/feature/routing/model/Stop.java" afterPath="$PROJECT_DIR$/app/src/main/generated/com/zlate87/sample_transport_app/feature/routing/model/Stop.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/generated/com/zlate87/sample_transport_app/feature/routing/model/Vbb.java" afterPath="$PROJECT_DIR$/app/src/main/generated/com/zlate87/sample_transport_app/feature/routing/model/Vbb.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="C:\workspace\sample-transport-app\.idea\workspace.xml" afterPath="" />
     </list>
     <ignored path="sample-transport-app.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -3127,7 +3098,13 @@
       <option name="project" value="LOCAL" />
       <updated>1451639509769</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Adds activities to provide user flow for selecting a route, loading the route and displaying it.">
+      <created>1451649371242</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1451649371242</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TodoView">
@@ -3192,7 +3169,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Removes retrolambda." />
-    <option name="LAST_COMMIT_MESSAGE" value="Removes retrolambda." />
+    <MESSAGE value="Adds activities to provide user flow for selecting a route, loading the route and displaying it." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adds activities to provide user flow for selecting a route, loading the route and displaying it." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3318,14 +3296,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.9767857">
-          <caret line="22" column="47" selection-start-line="22" selection-start-column="47" selection-end-line="22" selection-end-column="47" />
           <folding />
         </state>
       </provider>
