@@ -1,10 +1,12 @@
 
 package com.zlate87.sample_transport_app.feature.routing.model;
 
+import java.io.Serializable;
+
 import javax.annotation.Generated;
 
 @Generated("org.jsonschema2pojo")
-public class Provider_attributes {
+public class Provider_attributes implements Serializable {
 
     private Vbb vbb;
     private Drivenow drivenow;

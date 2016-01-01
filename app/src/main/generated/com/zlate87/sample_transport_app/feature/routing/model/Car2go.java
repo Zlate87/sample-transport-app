@@ -1,10 +1,12 @@
 
 package com.zlate87.sample_transport_app.feature.routing.model;
 
+import java.io.Serializable;
+
 import javax.annotation.Generated;
 
 @Generated("org.jsonschema2pojo")
-public class Car2go {
+public class Car2go implements Serializable {
 
     private String provider_icon_url;
     private String disclaimer;

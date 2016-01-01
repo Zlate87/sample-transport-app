@@ -1,10 +1,12 @@
 
 package com.zlate87.sample_transport_app.feature.routing.model;
 
+import java.io.Serializable;
+
 import javax.annotation.Generated;
 
 @Generated("org.jsonschema2pojo")
-public class Company {
+public class Company implements Serializable {
 
     private String name;
     private String phone;

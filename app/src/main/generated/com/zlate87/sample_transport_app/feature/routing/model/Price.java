@@ -1,10 +1,12 @@
 
 package com.zlate87.sample_transport_app.feature.routing.model;
 
+import java.io.Serializable;
+
 import javax.annotation.Generated;
 
 @Generated("org.jsonschema2pojo")
-public class Price {
+public class Price implements Serializable {
 
     private String currency;
     private Integer amount;

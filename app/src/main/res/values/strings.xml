@@ -1,3 +1,6 @@
 <resources>
 	<string name="app_name">sample-transport-app</string>
+	<string name="route">route</string>
+	<string name="routing_selectRouteActivity_introText">Sorry, no selection of a route is available at this time. You will only get one pre-defined dummy route.</string>
+	<string name="routing_validationMessage_noValidRoutesFound">Sorry, but we did not find any route for you :(.</string>
 </resources>

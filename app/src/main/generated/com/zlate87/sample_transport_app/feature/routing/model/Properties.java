@@ -1,12 +1,13 @@
 
 package com.zlate87.sample_transport_app.feature.routing.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Generated;
 
 @Generated("org.jsonschema2pojo")
-public class Properties {
+public class Properties implements Serializable {
 
     private List<Company> companies = new ArrayList<Company>();
 

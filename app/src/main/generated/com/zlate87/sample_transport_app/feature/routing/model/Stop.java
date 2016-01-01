@@ -1,10 +1,12 @@
 
 package com.zlate87.sample_transport_app.feature.routing.model;
 
+import java.io.Serializable;
+
 import javax.annotation.Generated;
 
 @Generated("org.jsonschema2pojo")
-public class Stop {
+public class Stop implements Serializable {
 
     private Double lat;
     private Double lng;
