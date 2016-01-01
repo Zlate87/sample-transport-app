@@ -9,9 +9,6 @@ buildscript {
 
 		// Android APT plugin needed for Dagger 2
 		classpath "com.neenbedankt.gradle.plugins:android-apt:$comNeenbedanktGradlePlugins_androidApt"
-
-		// Gradle Retrolambda Plugin
-		classpath "me.tatarka:gradle-retrolambda:$meTatarka_gradleRetrolambda"
 	}
 }
 

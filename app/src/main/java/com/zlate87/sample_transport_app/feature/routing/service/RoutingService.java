@@ -14,7 +14,5 @@ public interface RoutingService {
 	 * @param routeQueryParameters the query parameters for the route
 	 * @return the routing options for the given route query parameters
 	 */
-	// TODO: 12/29/2015 think about exception handling
-	// TODO: 12/29/2015 move away from the UI thread
 	RouteResponse route(RouteQueryParameters routeQueryParameters);
 }

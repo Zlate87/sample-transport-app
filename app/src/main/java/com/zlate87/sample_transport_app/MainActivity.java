@@ -20,10 +20,13 @@ public class MainActivity extends AppCompatActivity {
 	@Inject
 	AsyncRoutingService asyncRoutingService;
 
-	private Action1<RouteResponse> routeResponseAction = routeResponse -> {
-		TextView helloWorldLabel = (TextView) findViewById(R.id.helloWorldLabel);
-		String text = String.format("%s routes found", routeResponse.getRoutes().size());
-		helloWorldLabel.setText(text);
+	private Action1<RouteResponse> routeResponseAction = new Action1<RouteResponse>() {
+		@Override
+		public void call(RouteResponse routeResponse) {
+			TextView helloWorldLabel = (TextView) MainActivity.this.findViewById(R.id.helloWorldLabel);
+			String text = String.format("%s routes found", routeResponse.getRoutes().size());
+			helloWorldLabel.setText(text);
+		}
 	};
 
 	@Override

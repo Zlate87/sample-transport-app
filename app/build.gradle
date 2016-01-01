@@ -1,8 +1,5 @@
 apply plugin: 'com.android.application'
 
-//Gradle Retrolambda Plugin
-apply plugin: 'me.tatarka.retrolambda'
-
 android {
 	compileSdkVersion 23
 	buildToolsVersion "23.0.2"
@@ -35,6 +32,10 @@ android {
 
 	sourceSets {
 		main.java.srcDirs += 'src/main/generated'
+	}
+
+	lintOptions {
+		warning 'InvalidPackage'
 	}
 }
 
