@@ -8,4 +8,4 @@ android:
   components:
     - build-tools-23.0.2
 
-script: ./gradlew connectedAndroidTest
+script: ./gradlew clean build
