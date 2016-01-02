@@ -10,5 +10,6 @@ android:
     - tools
     - android-23
     - build-tools-23.0.2
+    - extra-android-m2repository
 
 script: ./gradlew clean build
