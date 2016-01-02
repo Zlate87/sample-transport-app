@@ -9,6 +9,7 @@ import javax.annotation.Generated;
 @Generated("org.jsonschema2pojo")
 public class Properties implements Serializable {
 
+    // TODO: 1/2/2016 add more properties
     private List<Company> companies = new ArrayList<Company>();
 
     /**

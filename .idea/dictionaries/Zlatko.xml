@@ -2,6 +2,8 @@
   <dictionary name="Zlatko">
     <words>
       <w>deserialized</w>
+      <w>joda</w>
+      <w>robolectric</w>
     </words>
   </dictionary>
 </component>

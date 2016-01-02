@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.AssetManager;
 
 import com.zlate87.sample_transport_app.BuildConfig;
+import com.zlate87.sample_transport_app.TestApp;
 import com.zlate87.sample_transport_app.TestHelper;
 
 import org.junit.Before;
@@ -25,7 +26,7 @@ import static org.mockito.Mockito.mock;
  * Test class for {@code FileReaderService}.
  */
 @RunWith(RobolectricGradleTestRunner.class)
-@Config(constants = BuildConfig.class, sdk = 21)
+@Config(constants = BuildConfig.class, sdk = 21, application = TestApp.class)
 public class FileReaderServiceTest {
 
 	private FileReaderService fileReaderService;

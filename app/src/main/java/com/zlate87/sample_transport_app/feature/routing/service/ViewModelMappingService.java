@@ -21,7 +21,6 @@ import javax.inject.Inject;
 /**
  * Service class responsible for mapping the model to view model.
  */
-// TODO: 1/1/2016 test
 public class ViewModelMappingService {
 
 	private static final String TAG = ViewModelMappingService.class.getSimpleName();

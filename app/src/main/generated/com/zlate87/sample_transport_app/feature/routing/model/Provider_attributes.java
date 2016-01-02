@@ -8,6 +8,7 @@ import javax.annotation.Generated;
 @Generated("org.jsonschema2pojo")
 public class Provider_attributes implements Serializable {
 
+    // TODO: 1/2/2016 optimize classes
     private Vbb vbb;
     private Drivenow drivenow;
     private Car2go car2go;

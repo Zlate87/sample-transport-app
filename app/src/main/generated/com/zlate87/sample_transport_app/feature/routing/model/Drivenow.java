@@ -10,8 +10,6 @@ public class Drivenow implements Serializable {
 
     private String provider_icon_url;
     private String disclaimer;
-    private String ios_itunes_url;
-    private String ios_app_url;
     private String android_package_name;
     private String display_name;
 
@@ -49,42 +47,6 @@ public class Drivenow implements Serializable {
      */
     public void setDisclaimer(String disclaimer) {
         this.disclaimer = disclaimer;
-    }
-
-    /**
-     * 
-     * @return
-     *     The ios_itunes_url
-     */
-    public String getIos_itunes_url() {
-        return ios_itunes_url;
-    }
-
-    /**
-     * 
-     * @param ios_itunes_url
-     *     The ios_itunes_url
-     */
-    public void setIos_itunes_url(String ios_itunes_url) {
-        this.ios_itunes_url = ios_itunes_url;
-    }
-
-    /**
-     * 
-     * @return
-     *     The ios_app_url
-     */
-    public String getIos_app_url() {
-        return ios_app_url;
-    }
-
-    /**
-     * 
-     * @param ios_app_url
-     *     The ios_app_url
-     */
-    public void setIos_app_url(String ios_app_url) {
-        this.ios_app_url = ios_app_url;
     }
 
     /**

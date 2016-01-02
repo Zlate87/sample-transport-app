@@ -28,6 +28,13 @@ public abstract class App extends Application {
 	public void onCreate() {
 		super.onCreate();
 		instance = this;
+		setupJodaTime();
+	}
+
+	/**
+	 * Method that will setup Android joda-time.
+	 */
+	protected void setupJodaTime() {
 		JodaTimeAndroid.init(this);
 	}
 
