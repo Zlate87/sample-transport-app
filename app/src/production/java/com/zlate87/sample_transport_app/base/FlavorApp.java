@@ -12,7 +12,7 @@ public class FlavorApp extends App {
 	@Override
 	protected BaseComponent initializeComponent() {
 		return DaggerProductionDataComponent.builder()
-						.productionModule(new ProductionModule())
+						.productionModule(new ProductionModule(this))
 						.build();
 	}
 }
