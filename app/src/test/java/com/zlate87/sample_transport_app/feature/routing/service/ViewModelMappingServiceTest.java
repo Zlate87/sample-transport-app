@@ -69,7 +69,9 @@ public class ViewModelMappingServiceTest {
 		assertThat(routePreview.getLeaveTime(), is("15:23"));
 		assertThat(routePreview.getDuration(), is("1h 14min"));
 		assertThat(routePreview.getIcons().size(), is(2));
-		assertThat(routePreview.getIcons().get(0), is("https://d3m2tfu2xpiope.cloudfront.net/vehicles/walking.svg"));
+		assertThat(routePreview.getIcons().get(0), is("walking"));
+		assertThat(routePreview.getIconsColors().get(0), is("#b1becc"));
+		assertThat(routePreview.getIconsText().get(0), is(""));
 	}
 
 	private RouteResponse prepareRouteResponse() {

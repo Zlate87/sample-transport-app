@@ -94,7 +94,9 @@ public class ViewModelMappingService {
 	private void addIconsToViewModel(Route route, RoutePreview routePreview) {
 		List<Segment> segments = route.getSegments();
 		for (Segment segment : segments) {
-			routePreview.getIcons().add(segment.getIcon_url());
+			routePreview.getIcons().add(segment.getTravel_mode());
+			routePreview.getIconsColors().add(segment.getColor());
+			routePreview.getIconsText().add(segment.getName() != null ? segment.getName() : "");
 		}
 	}
 

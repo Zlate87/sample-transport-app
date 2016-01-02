@@ -16,6 +16,8 @@ public class RoutePreview implements Serializable {
 	private String duration;
 
 	private List<String> icons = new ArrayList<>();
+	private List<String> iconsColors = new ArrayList<>();
+	private List<String> iconsText = new ArrayList<>();
 
 	public String getType() {
 		return type;
@@ -59,5 +61,13 @@ public class RoutePreview implements Serializable {
 
 	public List<String> getIcons() {
 		return icons;
+	}
+
+	public List<String> getIconsColors() {
+		return iconsColors;
+	}
+
+	public List<String> getIconsText() {
+		return iconsText;
 	}
 }
