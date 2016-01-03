@@ -7,7 +7,9 @@ import com.zlate87.sample_transport_app.TestApp;
 import com.zlate87.sample_transport_app.TestHelper;
 import com.zlate87.sample_transport_app.base.service.TimeHelperService;
 import com.zlate87.sample_transport_app.feature.routing.model.RouteResponse;
+import com.zlate87.sample_transport_app.feature.routing.viewmodel.PolylineData;
 import com.zlate87.sample_transport_app.feature.routing.viewmodel.RouteDetails;
+import com.zlate87.sample_transport_app.feature.routing.viewmodel.RouteMapData;
 import com.zlate87.sample_transport_app.feature.routing.viewmodel.RoutePreview;
 
 import org.junit.Before;
@@ -58,11 +60,25 @@ public class ViewModelMappingServiceTest {
 	private void assertRouteDetailsList(List<RouteDetails> routeDetailsList) {
 		assertThat(routeDetailsList.size(), is(9));
 		RouteDetails routeDetails = routeDetailsList.get(0);
-		assertFirstRoutePreview(routeDetails);
+		assertFirstRoute(routeDetails);
 	}
 
-	private void assertFirstRoutePreview(RouteDetails routeDetails) {
+	private void assertFirstRoute(RouteDetails routeDetails) {
 		RoutePreview routePreview = routeDetails.getRoutePreview();
+		assertFirstRoutePreview(routePreview);
+		RouteMapData routeMapData = routeDetails.getRouteMapData();
+		assertFirstRouteMapData(routeMapData);
+	}
+
+	private void assertFirstRouteMapData(RouteMapData routeMapData) {
+		List<PolylineData> polylineDataList = routeMapData.getPolylineDataList();
+		PolylineData polylineData = polylineDataList.get(0);
+		assertThat(polylineDataList.size(), is(2));
+		assertThat(polylineData.getEncodedValue(), is("uvr_I{yxpABuAFcAp@yHvAwNr@iGPwAh@a@jAg@"));
+		assertThat(polylineData.getColor(), is("#b1becc"));
+	}
+
+	private void assertFirstRoutePreview(RoutePreview routePreview) {
 		assertThat(routePreview.getType(), is("public_transport"));
 		assertThat(routePreview.getPrice(), is("EUR 270"));
 		assertThat(routePreview.getArriveTime(), is("15:23"));

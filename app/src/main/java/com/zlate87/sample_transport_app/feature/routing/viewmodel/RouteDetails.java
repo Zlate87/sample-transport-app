@@ -8,6 +8,7 @@ import java.io.Serializable;
 public class RouteDetails implements Serializable {
 
 	private RoutePreview routePreview;
+	private RouteMapData routeMapData;
 
 	// TODO: 1/1/2016 add additional details
 
@@ -17,5 +18,13 @@ public class RouteDetails implements Serializable {
 
 	public void setRoutePreview(RoutePreview routePreview) {
 		this.routePreview = routePreview;
+	}
+
+	public RouteMapData getRouteMapData() {
+		return routeMapData;
+	}
+
+	public void setRouteMapData(RouteMapData routeMapData) {
+		this.routeMapData = routeMapData;
 	}
 }

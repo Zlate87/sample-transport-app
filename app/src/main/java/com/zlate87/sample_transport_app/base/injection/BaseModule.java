@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.zlate87.sample_transport_app.base.service.TimeHelperService;
 import com.zlate87.sample_transport_app.feature.routing.service.AsyncRoutingService;
+import com.zlate87.sample_transport_app.feature.routing.service.PolylineService;
 import com.zlate87.sample_transport_app.feature.routing.service.RoutingService;
 import com.zlate87.sample_transport_app.feature.routing.service.ValidationService;
 import com.zlate87.sample_transport_app.feature.routing.service.ViewModelMappingService;
@@ -64,5 +65,16 @@ public class BaseModule {
 	@Singleton
 	public TimeHelperService provideTimeHelperService() {
 		return new TimeHelperService();
+	}
+
+	/**
+	 * Dagger 2 provider method.
+	 *
+	 * @return the provided {@code PolylineService}
+	 */
+	@Provides
+	@Singleton
+	public PolylineService providePolylineService() {
+		return new PolylineService();
 	}
 }

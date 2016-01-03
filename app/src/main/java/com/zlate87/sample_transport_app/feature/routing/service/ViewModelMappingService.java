@@ -10,7 +10,9 @@ import com.zlate87.sample_transport_app.feature.routing.model.Route;
 import com.zlate87.sample_transport_app.feature.routing.model.RouteResponse;
 import com.zlate87.sample_transport_app.feature.routing.model.Segment;
 import com.zlate87.sample_transport_app.feature.routing.model.Stop;
+import com.zlate87.sample_transport_app.feature.routing.viewmodel.PolylineData;
 import com.zlate87.sample_transport_app.feature.routing.viewmodel.RouteDetails;
+import com.zlate87.sample_transport_app.feature.routing.viewmodel.RouteMapData;
 import com.zlate87.sample_transport_app.feature.routing.viewmodel.RoutePreview;
 
 import java.util.ArrayList;
@@ -61,12 +63,27 @@ public class ViewModelMappingService {
 	}
 
 	@NonNull
+	// TODO: 1/3/2016 optimizing the mapper (do not loop the same arrays multiple times)
 	private RouteDetails mapToRouteDetails(Route route) {
 		RouteDetails routeDetails = new RouteDetails();
 		RoutePreview routePreview = mapToRoutePreview(route);
 		routeDetails.setRoutePreview(routePreview);
+		RouteMapData routeMapData = mapToRouteMapData(route);
+		routeDetails.setRouteMapData(routeMapData);
 		// TODO: 1/1/2016 map the rest of the details
 		return routeDetails;
+	}
+
+	private RouteMapData mapToRouteMapData(Route route) {
+		RouteMapData routeMapData = new RouteMapData();
+		List<Segment> segments = route.getSegments();
+		for (Segment segment : segments) {
+			PolylineData polylineData = new PolylineData();
+			polylineData.setEncodedValue(segment.getPolyline());
+			polylineData.setColor(segment.getColor());
+			routeMapData.getPolylineDataList().add(polylineData);
+		}
+		return routeMapData;
 	}
 
 	@NonNull
