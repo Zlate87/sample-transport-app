@@ -16,9 +16,13 @@
 				<category android:name="android.intent.category.LAUNCHER"/>
 			</intent-filter>
 		</activity>
-		<activity android:name=".feature.routing.controller.RoutesPreviewActivity">
+		<activity android:name=".feature.routing.preview.controller.RoutesPreviewActivity">
 		</activity>
-		<activity android:name=".feature.routing.controller.LoadRouteActivity" android:noHistory="true">
+		<activity
+				android:name=".feature.routing.controller.LoadRouteActivity"
+				android:noHistory="true">
+		</activity>
+		<activity android:name=".feature.routing.details.controller.RouteDetailsActivity">
 		</activity>
 	</application>
 

@@ -1,4 +1,4 @@
-package com.zlate87.sample_transport_app.feature.routing.controller;
+package com.zlate87.sample_transport_app.feature.routing.preview.controller;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -34,7 +34,7 @@ public class RoutesAdapter extends RecyclerView.Adapter<RouteViewHolder> {
 
 	@Override
 	public void onBindViewHolder(RouteViewHolder holder, int position) {
-		holder.reUseView(routeDetailsList.get(position).getRoutePreview());
+		holder.reUseView(routeDetailsList.get(position));
 	}
 
 	@Override

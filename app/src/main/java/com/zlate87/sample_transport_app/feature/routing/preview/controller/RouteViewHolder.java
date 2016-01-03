@@ -1,6 +1,7 @@
-package com.zlate87.sample_transport_app.feature.routing.controller;
+package com.zlate87.sample_transport_app.feature.routing.preview.controller;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -11,14 +12,18 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.zlate87.sample_transport_app.R;
+import com.zlate87.sample_transport_app.feature.routing.details.controller.RouteDetailsActivity;
+import com.zlate87.sample_transport_app.feature.routing.viewmodel.RouteDetails;
 import com.zlate87.sample_transport_app.feature.routing.viewmodel.RoutePreview;
 
 import java.util.List;
 
+import static com.zlate87.sample_transport_app.feature.routing.details.controller.RouteDetailsActivity.ROUTE_DETAILS_INTENT_EXTRA_KEY;
+
 /**
  * {@code ViewHolder} for a route.
  */
-public class RouteViewHolder extends RecyclerView.ViewHolder {
+public class RouteViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
 	private static final String TAG = RouteViewHolder.class.getSimpleName();
 
@@ -31,6 +36,7 @@ public class RouteViewHolder extends RecyclerView.ViewHolder {
 	private View timeDateSeparator;
 	private LinearLayout iconsLinearLayout;
 	private LinearLayout iconsTextLinearLayout;
+	private RouteDetails routeDetails;
 
 	/**
 	 * Constructor.
@@ -38,6 +44,7 @@ public class RouteViewHolder extends RecyclerView.ViewHolder {
 	 */
 	public RouteViewHolder(View itemView) {
 		super(itemView);
+		itemView.setOnClickListener(this);
 		context = itemView.getContext();
 		setupView(itemView);
 	}
@@ -54,9 +61,11 @@ public class RouteViewHolder extends RecyclerView.ViewHolder {
 
 	/**
 	 * Re use the view
-	 * @param routePreview the view model
+	 * @param routeDetails the view model
 	 */
-	public void reUseView(RoutePreview routePreview) {
+	public void reUseView(RouteDetails routeDetails) {
+		this.routeDetails = routeDetails;
+		RoutePreview routePreview = routeDetails.getRoutePreview();
 		type.setText(routePreview.getType());
 
 		String priceText = routePreview.getPrice();
@@ -134,4 +143,10 @@ public class RouteViewHolder extends RecyclerView.ViewHolder {
 		}
 	}
 
+	@Override
+	public void onClick(View v) {
+		Intent routeDetailsIntent = new Intent(context, RouteDetailsActivity.class);
+		routeDetailsIntent.putExtra(ROUTE_DETAILS_INTENT_EXTRA_KEY, routeDetails);
+		context.startActivity(routeDetailsIntent);
+	}
 }

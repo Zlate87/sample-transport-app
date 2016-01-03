@@ -9,6 +9,7 @@ import com.zlate87.sample_transport_app.base.App;
 import com.zlate87.sample_transport_app.base.controller.BaseActivity;
 import com.zlate87.sample_transport_app.feature.routing.model.RouteQueryParameters;
 import com.zlate87.sample_transport_app.feature.routing.model.RouteResponse;
+import com.zlate87.sample_transport_app.feature.routing.preview.controller.RoutesPreviewActivity;
 import com.zlate87.sample_transport_app.feature.routing.service.AsyncRoutingService;
 
 import javax.inject.Inject;
@@ -17,7 +18,7 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 import rx.schedulers.Schedulers;
 
-import static com.zlate87.sample_transport_app.feature.routing.controller.RoutesPreviewActivity.ROUTE_RESPONSE_INTENT_EXTRA_KEY;
+import static com.zlate87.sample_transport_app.feature.routing.preview.controller.RoutesPreviewActivity.ROUTE_RESPONSE_INTENT_EXTRA_KEY;
 
 /**
  * Activity class responsible for loading the selected route.

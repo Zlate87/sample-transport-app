@@ -1,9 +1,11 @@
 package com.zlate87.sample_transport_app.feature.routing.viewmodel;
 
+import java.io.Serializable;
+
 /**
  * View model cass for displaying route details.
  */
-public class RouteDetails {
+public class RouteDetails implements Serializable {
 
 	private RoutePreview routePreview;
 

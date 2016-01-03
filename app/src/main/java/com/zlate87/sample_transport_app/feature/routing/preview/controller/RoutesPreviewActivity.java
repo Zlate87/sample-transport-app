@@ -1,4 +1,4 @@
-package com.zlate87.sample_transport_app.feature.routing.controller;
+package com.zlate87.sample_transport_app.feature.routing.preview.controller;
 
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
