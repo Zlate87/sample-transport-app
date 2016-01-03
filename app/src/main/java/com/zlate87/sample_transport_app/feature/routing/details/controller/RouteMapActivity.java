@@ -16,17 +16,32 @@ import javax.inject.Inject;
 /**
  * Abstract activity class responsible for displaying the route map.
  */
-public abstract class AbstractRouteDetailsMapActivity extends BaseActivity implements OnMapReadyCallback {
+public class RouteMapActivity extends BaseActivity implements OnMapReadyCallback {
+
+	/**
+	 * Intent extra key for the {@code RouteDetails} that should be used.
+	 */
+	public static final String ROUTE_MAP_INFO_INTENT_EXTRA_KEY = "ROUTE_MAP_INFO_INTENT_EXTRA_KEY";
 
 	@Inject
 	PolylineService polylineService;
 
+	private RouteMapData routeMapInfo;
+
 	private MapView mapView;
+
+	@Override
+	protected int getContentViewId() {
+		return R.layout.routing_route_map_activity;
+	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		App.getInstance().getComponent().inject(this);
+
+		routeMapInfo = (RouteMapData) getIntent().getExtras().get(ROUTE_MAP_INFO_INTENT_EXTRA_KEY);
+
 		mapView = (MapView) findViewById(R.id.mapView);
 		mapView.onCreate(savedInstanceState);
 		mapView.getMapAsync(this);
@@ -64,9 +79,7 @@ public abstract class AbstractRouteDetailsMapActivity extends BaseActivity imple
 
 	@Override
 	public void onMapReady(GoogleMap googleMap) {
-		RouteMapData routeMapInfo = getRouteMapInfo();
 		polylineService.addRoutePolylineToMap(googleMap, routeMapInfo);
 	}
 
-	protected abstract RouteMapData getRouteMapInfo();
 }

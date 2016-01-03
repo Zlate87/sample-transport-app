@@ -6,7 +6,9 @@
 		android:layout_height="match_parent"
 		tools:context=".feature.routing.details.controller.RouteDetailsActivity">
 
-	<include
-			android:id="@+id/routePreview"
-			layout="@layout/routing_routes_list_element"/>
+	<com.google.android.gms.maps.MapView xmlns:android="http://schemas.android.com/apk/res/android"
+																			 android:id="@+id/mapView"
+																			 android:layout_width="match_parent"
+																			 android:layout_height="match_parent" />
+
 </RelativeLayout>

@@ -8,4 +8,5 @@
 	<string name="private_bike">Private Bike</string>
 	<string name="bike_sharing">Bike Sharing</string>
 	<string name="taxi">Taxi</string>
+	<string name="routing_routePreview_openMap">Open route on a map.</string>
 </resources>

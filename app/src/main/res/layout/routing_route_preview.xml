@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+			 xmlns:tools="http://schemas.android.com/tools"
+			 android:layout_width="match_parent"
+			 android:layout_height="wrap_content">
+
+
+	<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:padding="7dp">
+
+		<TextView
+				android:id="@+id/type"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignParentTop="true"
+				tools:text="Public Transport"/>
+
+		<ImageButton
+				android:id="@+id/openMap"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignParentEnd="true"
+				android:layout_alignParentRight="true"
+				android:layout_centerVertical="true"
+				android:layout_margin="7dp"
+				android:background="#0000"
+				android:contentDescription="@string/routing_routePreview_openMap"
+				android:src="@android:drawable/ic_dialog_map"
+				android:tint="@color/colorAccent"/>
+
+		<LinearLayout
+				android:id="@+id/iconsLinearLayout"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_below="@id/type"
+				android:minHeight="30dp"
+				android:orientation="horizontal"/>
+
+		<LinearLayout
+				android:id="@+id/iconsTextLinearLayout"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:minHeight="10dp"
+				android:layout_below="@id/iconsLinearLayout"
+				android:orientation="horizontal"/>
+
+		<LinearLayout
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignParentLeft="true"
+				android:layout_alignParentStart="true"
+				android:layout_below="@id/iconsTextLinearLayout">
+
+			<TextView
+					android:id="@+id/price"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					tools:text="€3.3"/>
+
+			<View
+					android:id="@+id/timeDateSeparator"
+					android:layout_width="1dp"
+					android:layout_height="match_parent"
+					android:layout_marginLeft="5dp"
+					android:layout_marginRight="5dp"
+					android:background="@color/separatorColor"/>
+
+			<TextView
+					android:id="@+id/time"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					tools:text="3:14 -> 4:27"/>
+		</LinearLayout>
+
+		<TextView
+				android:id="@+id/duration"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignParentEnd="true"
+				android:layout_alignParentRight="true"
+				android:layout_below="@id/iconsTextLinearLayout"
+				tools:text="56 min"/>
+
+	</RelativeLayout>
+
+	<View
+			android:layout_width="match_parent"
+			android:layout_height="1dp"
+			android:background="@color/separatorColor"/>
+</merge>
