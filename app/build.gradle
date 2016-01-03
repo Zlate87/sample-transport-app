@@ -35,9 +35,8 @@ android {
 	}
 
 	lintOptions {
+		// needed by moshi, because in it okio.Okio is referencing java.nio.file, but it is not included in Android
 		warning 'InvalidPackage'
-		// TODO 1/3/2016 enable abortOnError once the travis issue is resolved
-		abortOnError false
 	}
 
 	packagingOptions {
@@ -49,12 +48,16 @@ android {
 // Android APT plugin needed for Dagger 2
 apply plugin: 'com.neenbedankt.android-apt'
 
+if (project.hasProperty('travisBuild')) {
+	apply from: 'scripts/travis.gradle'
+}
+
 dependencies {
 	// Android support libraries
 	compile "com.android.support:appcompat-v7:$comAndroidSupport"
 	compile "com.android.support:design:$comAndroidSupport"
 
-	// JSON library
+	// moshi, a JSON library
 	compile "com.squareup.moshi:moshi:$comSquareupMoshi_moshi"
 
 	// dagger, used for dependencies injection

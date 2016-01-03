@@ -12,6 +12,6 @@ android:
     - build-tools-23.0.2
     - extra-android-m2repository
 
-script: ./gradlew clean build
+script: ./gradlew clean build -PtravisBuild
 
 after_failure: "cat /home/travis/build/Zlate87/sample-transport-app/app/build/outputs/lint-results.xml"

@@ -1,0 +1,5 @@
+android {
+	lintOptions {
+		warning 'NewApi' // needed because of travis issue with the latest build tools
+	}
+}
