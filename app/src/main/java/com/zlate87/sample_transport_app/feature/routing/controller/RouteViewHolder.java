@@ -18,7 +18,6 @@ import java.util.List;
 /**
  * {@code ViewHolder} for a route.
  */
-// TODO: 1/2/2016 improve performance
 public class RouteViewHolder extends RecyclerView.ViewHolder {
 
 	private static final String TAG = RouteViewHolder.class.getSimpleName();
@@ -120,7 +119,7 @@ public class RouteViewHolder extends RecyclerView.ViewHolder {
 		imageView.setVisibility(View.VISIBLE);
 		textView.setVisibility(View.VISIBLE);
 
-		int id = context.getResources().getIdentifier(icons.get(i), "drawable", context.getApplicationInfo().packageName);
+		int id = context.getResources().getIdentifier(icons.get(i), "mipmap", context.getApplicationInfo().packageName);
 		if (id != 0) {
 			imageView.setImageResource(id);
 			String iconColor = iconsColors.get(i);
