@@ -5,6 +5,7 @@ import com.squareup.moshi.Moshi;
 import com.zlate87.sample_transport_app.TestApp;
 import com.zlate87.sample_transport_app.TestBuildConfig;
 import com.zlate87.sample_transport_app.TestHelper;
+import com.zlate87.sample_transport_app.UTCRule;
 import com.zlate87.sample_transport_app.base.service.TimeHelperService;
 import com.zlate87.sample_transport_app.feature.routing.model.RouteResponse;
 import com.zlate87.sample_transport_app.feature.routing.viewmodel.PolylineData;
@@ -14,6 +15,7 @@ import com.zlate87.sample_transport_app.feature.routing.viewmodel.RoutePreview;
 import com.zlate87.sample_transport_app.feature.routing.viewmodel.RouteSegment;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricGradleTestRunner;
@@ -33,6 +35,9 @@ import static org.hamcrest.core.IsNull.nullValue;
 @RunWith(RobolectricGradleTestRunner.class)
 @Config(constants = TestBuildConfig.class, sdk = 21, application = TestApp.class)
 public class ViewModelMappingServiceTest {
+
+	@Rule
+	public UTCRule utcRule = new UTCRule();
 
 	private ViewModelMappingService viewModelMappingService;
 
