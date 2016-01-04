@@ -83,8 +83,7 @@ public class ViewModelMappingService {
 		List<Segment> segments = route.getSegments();
 		for (Segment segment : segments) {
 			RouteSegment routeSegment = new RouteSegment();
-			String name = segment.getName();
-			routeSegment.setName(name != null ? name : context.getString(R.string.routing_routeDetails_unknownStop));
+			routeSegment.setName(segment.getName());
 			routeSegment.setDescription(segment.getDescription());
 			routeSegment.setColor(segment.getColor());
 			routeSegment.setTravelMode(getStringTextFromStringId(segment.getTravel_mode()));

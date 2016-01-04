@@ -6,6 +6,7 @@ import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.zlate87.sample_transport_app.BuildConfig;
 import com.zlate87.sample_transport_app.TestApp;
+import com.zlate87.sample_transport_app.TestBuildConfig;
 import com.zlate87.sample_transport_app.feature.routing.viewmodel.PolylineData;
 
 import org.junit.Before;
@@ -21,7 +22,7 @@ import static org.hamcrest.core.Is.is;
  * Test class for {@code PolylineService}.
  */
 @RunWith(RobolectricGradleTestRunner.class)
-@Config(constants = BuildConfig.class, sdk = 21, application = TestApp.class)
+@Config(constants = TestBuildConfig.class, sdk = 21, application = TestApp.class)
 public class PolylineServiceTest {
 
 	private PolylineService polylineService;

@@ -2,6 +2,7 @@ package com.zlate87.sample_transport_app.feature.routing.service;
 
 import com.zlate87.sample_transport_app.BuildConfig;
 import com.zlate87.sample_transport_app.TestApp;
+import com.zlate87.sample_transport_app.TestBuildConfig;
 import com.zlate87.sample_transport_app.TestHelper;
 import com.zlate87.sample_transport_app.base.service.FileReaderService;
 import com.zlate87.sample_transport_app.feature.routing.model.Callabike;
@@ -34,7 +35,7 @@ import static org.mockito.Mockito.mock;
  * Test class for {@code DummyRoutingService}.
  */
 @RunWith(RobolectricGradleTestRunner.class)
-@Config(constants = BuildConfig.class, sdk = 21, application = TestApp.class)
+@Config(constants = TestBuildConfig.class, sdk = 21, application = TestApp.class)
 public class DummyRoutingServiceTest {
 
 	private DummyRoutingService dummyRoutingService;
