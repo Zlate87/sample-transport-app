@@ -13,6 +13,6 @@ android:
     - extra-android-m2repository
     - extra-google-m2repository
 
-script: ./gradlew clean build -PtravisBuild
+script: ./gradlew clean build -PtravisBuild -i
 
 after_failure: "cat /home/travis/build/Zlate87/sample-transport-app/app/build/outputs/lint-results.xml"
