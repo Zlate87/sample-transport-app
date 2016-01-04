@@ -69,7 +69,6 @@ public class RouteSegmentViewHolder extends RecyclerView.ViewHolder implements V
 		RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) segmentChain.getLayoutParams();
 		int anchorId = segment.isExpanded() ? R.id.stopsNamesLinearLayout : R.id.segmentInformationLayout;
 		params.addRule(RelativeLayout.ALIGN_BOTTOM, anchorId);
-		// TODO: 1/4/2016 if no stops, notifiy user
 	}
 
 	/**
@@ -84,9 +83,11 @@ public class RouteSegmentViewHolder extends RecyclerView.ViewHolder implements V
 
 	public void renderRouteSegment(RouteSegment segment) {
 		List<SegmentStop> segmentStops = segment.getSegmentStops();
+		int color = Color.parseColor(segment.getColor());
 		segmentFirstStopTime.setText(segmentStops.get(0).getTime());
 		segmentFirstStopName.setText(segmentStops.get(0).getName());
-		segmentChain.setBackgroundColor(Color.parseColor(segment.getColor()));
+		segmentFirstStopName.setTextColor(color);
+		segmentChain.setBackgroundColor(color);
 		segmentName.setText(segment.getName());
 		segmentTravelMode.setText(segment.getTravelMode());
 		segmentDescription.setText(segment.getDescription());

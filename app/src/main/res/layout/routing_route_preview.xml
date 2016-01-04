@@ -12,8 +12,7 @@
 
 		<TextView
 				android:id="@+id/type"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
+				style="@style/TitleTextView"
 				android:layout_alignParentTop="true"
 				tools:text="Public Transport"/>
 
@@ -43,6 +42,7 @@
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:minHeight="10dp"
+				android:layout_marginBottom="5dp"
 				android:layout_below="@id/iconsLinearLayout"
 				android:orientation="horizontal"/>
 

@@ -2,6 +2,7 @@
 	<string name="app_name">sample-transport-app</string>
 	<string name="route">route</string>
 	<string name="stops">stops</string>
+	<string name="doNotShowAgain">Got it</string>
 	<string name="routing_selectRouteActivity_introText">Sorry, no selection of a route is available at this time. You will only get one pre-defined dummy route.</string>
 	<string name="routing_validationMessage_noValidRoutesFound">Sorry, but we did not find any route for you :(.</string>
 	<string name="public_transport">Public Transport</string>
@@ -19,4 +20,5 @@
 	<string name="cycling">Cycling</string>
 	<string name="routing_routePreview_openMap">Open route on a map.</string>
 	<string name="routing_routeDetails_unknownStop">Unknown address</string>
+	<string name="routing_routeDetails_segmentExpansionHint">Tap on the segment to see its stops.</string>
 </resources>

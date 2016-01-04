@@ -7,7 +7,6 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -121,16 +120,12 @@ public class RoutePreviewView extends LinearLayout {
 	}
 
 	private void addNewImageView() {
-		ImageView imageView = new ImageView(getContext());
+		View imageView = inflate(getContext(), R.layout.routing_route_segment_icon, null);
 		iconsLinearLayout.addView(imageView);
 	}
 
 	private void addNewTextView() {
-		TextView textView = new TextView(getContext());
-		final float scale = getContext().getResources().getDisplayMetrics().density;
-		int pixels = (int) (56 * scale + 0.5f);
-		textView.setWidth(pixels);
-		textView.setGravity(Gravity.CENTER);
+		View textView = inflate(getContext(), R.layout.routing_route_segment_text, null);
 		iconsTextLinearLayout.addView(textView);
 	}
 

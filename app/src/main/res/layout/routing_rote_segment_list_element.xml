@@ -12,6 +12,7 @@
 			android:layout_marginBottom="87dp"
 			android:gravity="center"
 			android:padding="5dp"
+			android:textSize="18sp"
 			tools:text="22:08"/>
 
 	<View
@@ -36,6 +37,7 @@
 		<TextView
 				android:id="@+id/segmentFirstStopName"
 				android:layout_width="wrap_content"
+				android:textSize="18sp"
 				android:layout_height="wrap_content"
 				tools:text="Torstraße 103, 10119 Berlin, Deutschland"/>
 

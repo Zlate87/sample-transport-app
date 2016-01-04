@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:tools="http://schemas.android.com/tools"
+		style="@style/PreviewSegmentIconText"
+		tools:text="U2"
+		tools:background="#3FF"/>
