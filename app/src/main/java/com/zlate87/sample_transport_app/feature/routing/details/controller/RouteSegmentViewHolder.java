@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.zlate87.sample_transport_app.R;
@@ -19,21 +20,20 @@ import java.util.List;
 public class RouteSegmentViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
 
-	private LinearLayout timesLayout;
 	private TextView segmentFirstStopTime;
 	private View segmentChain;
-	private LinearLayout segmentInformationLayout;
 	private TextView segmentFirstStopName;
 	private TextView segmentTravelMode;
 	private TextView segmentName;
 	private TextView segmentDescription;
 	private TextView segmentDuration;
+	private LinearLayout stopsTimesLinearLayout;
+	private LinearLayout stopsNamesLinearLayout;
 
 	private RouteSegment segment;
 
 	private Context context;
 
-	int segmentInformationLayoutNotNamechildren;
 
 	/**
 	 * Constructor.
@@ -42,27 +42,33 @@ public class RouteSegmentViewHolder extends RecyclerView.ViewHolder implements V
 	 */
 	public RouteSegmentViewHolder(View itemView) {
 		super(itemView);
+		itemView.setOnClickListener(this);
 		context = itemView.getContext();
 		setup(itemView);
 	}
+
 	private void setup(View view) {
-		timesLayout = (LinearLayout) view.findViewById(R.id.timesLayout);
 		segmentFirstStopTime = (TextView) view.findViewById(R.id.segmentFirstStopTime);
 		segmentChain = view.findViewById(R.id.segmentChain);
-		segmentInformationLayout = (LinearLayout) view.findViewById(R.id.segmentInformationLayout);
 		segmentFirstStopName = (TextView) view.findViewById(R.id.segmentFirstStopName);
 		segmentName = (TextView) view.findViewById(R.id.segmentName);
 		segmentTravelMode = (TextView) view.findViewById(R.id.segmentTravelMode);
 		segmentDescription = (TextView) view.findViewById(R.id.segmentDescription);
 		segmentDuration = (TextView) view.findViewById(R.id.segmentDuration);
 
-		// -1 because of segmentFirstStopName
-		segmentInformationLayoutNotNamechildren = segmentInformationLayout.getChildCount() - 1;
+		stopsTimesLinearLayout = (LinearLayout) view.findViewById(R.id.stopsTimesLinearLayout);
+		stopsNamesLinearLayout = (LinearLayout) view.findViewById(R.id.stopsNamesLinearLayout);
 	}
 
 	@Override
 	public void onClick(View v) {
-		// TODO: 1/4/2016 expande colapse, make sure the user is informed about the feature
+		// TODO: 1/4/2016 animate
+		segment.setIsExpanded(!segment.isExpanded());
+		stopsTimesLinearLayout.setVisibility(segment.isExpanded() ? View.VISIBLE : View.GONE);
+		stopsNamesLinearLayout.setVisibility(segment.isExpanded() ? View.VISIBLE : View.GONE);
+		RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) segmentChain.getLayoutParams();
+		int anchorId = segment.isExpanded() ? R.id.stopsNamesLinearLayout : R.id.segmentInformationLayout;
+		params.addRule(RelativeLayout.ALIGN_BOTTOM, anchorId);
 		// TODO: 1/4/2016 if no stops, notifiy user
 	}
 
@@ -86,27 +92,29 @@ public class RouteSegmentViewHolder extends RecyclerView.ViewHolder implements V
 		segmentDescription.setText(segment.getDescription());
 		segmentDuration.setText(segment.getDuration());
 
-		// make sure there are time and name text view for every stop
-		int stopViewsToBeAdded = segmentStops.size() - timesLayout.getChildCount();
+		// make sure there are time and name text view for every stop (-1 because the first one is already available)
+		int stopViewsToBeAdded = segmentStops.size() - stopsTimesLinearLayout.getChildCount() - 1;
 		for (int i = 0; i < stopViewsToBeAdded; i++) {
 			TextView stopTimeTextView = new TextView(context);
-			timesLayout.addView(stopTimeTextView);
+			stopsTimesLinearLayout.addView(stopTimeTextView);
 			TextView stopNameTextView = new TextView(context);
-			segmentInformationLayout.addView(stopNameTextView);
+			stopsNamesLinearLayout.addView(stopNameTextView);
 		}
 
-		// hide images views that should not be used
-		for (int i = segmentStops.size(); i < timesLayout.getChildCount(); i++) {
-			timesLayout.getChildAt(i).setVisibility(View.GONE);
-			segmentInformationLayout.getChildAt(i + segmentInformationLayoutNotNamechildren).setVisibility(View.GONE);
+		// hide images views that should not be used  (-1 because the first one is already available)
+		for (int i = segmentStops.size() - 1; i < stopsTimesLinearLayout.getChildCount(); i++) {
+			stopsTimesLinearLayout.getChildAt(i).setVisibility(View.GONE);
+			stopsNamesLinearLayout.getChildAt(i).setVisibility(View.GONE);
 		}
 
-		// set the stops time and name (start from 1, since the 0 is pre filed already)
+		// set the stops time and name
+		// start from 1, since the 0 is pre filed already; -1 because the first one is not in this layout
 		for (int i = 1; i < segmentStops.size(); i++) {
-			TextView stopTimeTextView = (TextView) timesLayout.getChildAt(i);
+			TextView stopTimeTextView = (TextView) stopsTimesLinearLayout.getChildAt(i - 1);
+			stopTimeTextView.setVisibility(View.VISIBLE);
 			stopTimeTextView.setText(segmentStops.get(i).getTime());
-			TextView stopNameTextView = (TextView) segmentInformationLayout.getChildAt(
-							i + segmentInformationLayoutNotNamechildren);
+			TextView stopNameTextView = (TextView) stopsNamesLinearLayout.getChildAt(i - 1);
+			stopNameTextView.setVisibility(View.VISIBLE);
 			stopNameTextView.setText(segmentStops.get(i).getName());
 		}
 

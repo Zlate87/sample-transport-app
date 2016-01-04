@@ -17,6 +17,8 @@ public class RouteSegment implements Serializable {
 	private String color;
 	private List<SegmentStop> segmentStops = new ArrayList<>();
 
+	private boolean isExpanded = false;
+
 	public String getName() {
 		return name;
 	}
@@ -59,5 +61,13 @@ public class RouteSegment implements Serializable {
 
 	public List<SegmentStop> getSegmentStops() {
 		return segmentStops;
+	}
+
+	public boolean isExpanded() {
+		return isExpanded;
+	}
+
+	public void setIsExpanded(boolean isExpanded) {
+		this.isExpanded = isExpanded;
 	}
 }

@@ -1,38 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-							xmlns:tools="http://schemas.android.com/tools"
-							android:layout_width="match_parent"
-							android:layout_height="wrap_content"
-							android:orientation="horizontal">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+								xmlns:tools="http://schemas.android.com/tools"
+								android:layout_width="match_parent"
+								android:layout_height="wrap_content">
 
-	<LinearLayout
-			android:id="@+id/timesLayout"
-			android:layout_width="wrap_content"
+
+	<TextView
+			android:id="@+id/segmentFirstStopTime"
+			android:layout_width="60dp"
 			android:layout_height="wrap_content"
-			android:orientation="vertical"
-			android:padding="5dp">
-
-		<TextView
-				android:id="@+id/segmentFirstStopTime"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_marginBottom="87dp"
-				tools:text="22:08"/>
-
-	</LinearLayout>
+			android:layout_marginBottom="87dp"
+			android:gravity="center"
+			android:padding="5dp"
+			tools:text="22:08"/>
 
 	<View
 			android:id="@+id/segmentChain"
 			android:layout_width="10dp"
-			android:layout_height="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_alignBottom="@+id/segmentInformationLayout"
+			android:layout_alignParentTop="true"
+			android:layout_toEndOf="@id/segmentFirstStopTime"
+			android:layout_toRightOf="@id/segmentFirstStopTime"
 			tools:background="#555"/>
 
 	<LinearLayout
 			android:id="@+id/segmentInformationLayout"
-			android:layout_width="wrap_content"
+			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:padding="5dp"
-			android:orientation="vertical">
+			android:layout_toEndOf="@id/segmentChain"
+			android:layout_toRightOf="@id/segmentChain"
+			android:orientation="vertical"
+			android:padding="5dp">
 
 		<TextView
 				android:id="@+id/segmentFirstStopName"
@@ -67,4 +66,26 @@
 
 	</LinearLayout>
 
-</LinearLayout>
+	<LinearLayout
+			android:id="@+id/stopsTimesLinearLayout"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@id/segmentInformationLayout"
+			android:orientation="vertical"
+			android:padding="5dp"
+			android:visibility="gone">
+	</LinearLayout>
+
+	<LinearLayout
+			android:id="@+id/stopsNamesLinearLayout"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_below="@id/segmentInformationLayout"
+			android:layout_toEndOf="@id/segmentChain"
+			android:layout_toRightOf="@id/segmentChain"
+			android:orientation="vertical"
+			android:padding="5dp"
+			android:visibility="gone">
+	</LinearLayout>
+
+</RelativeLayout>
