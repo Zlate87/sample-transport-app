@@ -84,7 +84,7 @@ public class ViewModelMappingServiceTest {
 		assertThat(firstRouteSegment.getTravelMode(), is("Walking"));
 		assertThat(firstRouteSegment.getSegmentStops().size(), is(2));
 		assertThat(firstRouteSegment.getSegmentStops().get(0).getName(), is("Unknown address"));
-		assertThat(firstRouteSegment.getSegmentStops().get(0).getTime(), is("13:30"));
+		assertThat(firstRouteSegment.getSegmentStops().get(0).getTime(), is("11:30"));
 		assertThat(firstRouteSegment.getSegmentStops().get(1).getName(), is("U Rosa-Luxemburg-Platz"));
 		RouteSegment secondRouteSegment = routeSegments.get(1);
 		assertThat(secondRouteSegment.getName(), is("U2"));
@@ -105,8 +105,8 @@ public class ViewModelMappingServiceTest {
 	private void assertFirstRoutePreview(RoutePreview routePreview) {
 		assertThat(routePreview.getType(), is("Public Transport"));
 		assertThat(routePreview.getPrice(), is("EUR 270"));
-		assertThat(routePreview.getLeaveTime(), is("13:30"));
-		assertThat(routePreview.getArriveTime(), is("13:51"));
+		assertThat(routePreview.getLeaveTime(), is("11:30"));
+		assertThat(routePreview.getArriveTime(), is("11:51"));
 		assertThat(routePreview.getDuration(), is("21min"));
 		assertThat(routePreview.getIcons().size(), is(2));
 		assertThat(routePreview.getIcons().get(0), is("walking"));
