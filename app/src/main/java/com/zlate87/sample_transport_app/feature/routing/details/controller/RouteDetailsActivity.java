@@ -1,12 +1,18 @@
 package com.zlate87.sample_transport_app.feature.routing.details.controller;
 
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 
 import com.zlate87.sample_transport_app.R;
 import com.zlate87.sample_transport_app.base.controller.BaseActivity;
 import com.zlate87.sample_transport_app.feature.routing.preview.controller.RoutePreviewView;
+import com.zlate87.sample_transport_app.feature.routing.preview.controller.RoutesPreviewAdapter;
 import com.zlate87.sample_transport_app.feature.routing.viewmodel.RouteDetails;
 
+/**
+ * Activity responsible for displaying the
+ */
 public class RouteDetailsActivity extends BaseActivity {
 
 	/**
@@ -27,6 +33,12 @@ public class RouteDetailsActivity extends BaseActivity {
 		routeDetails = (RouteDetails) getIntent().getExtras().get(ROUTE_DETAILS_INTENT_EXTRA_KEY);
 
 		((RoutePreviewView) findViewById(R.id.routePreview)).renderRoutePreview(routeDetails);
+
+		RecyclerView segmentsRecyclerView = (RecyclerView) findViewById(R.id.routeSegmentsRecyclerView);
+		LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+		segmentsRecyclerView.setLayoutManager(layoutManager);
+		RouteSegmentsAdapter routeSegmentsAdapter = new RouteSegmentsAdapter(routeDetails.getRouteSegments());
+		segmentsRecyclerView.setAdapter(routeSegmentsAdapter);
 	}
 
 }

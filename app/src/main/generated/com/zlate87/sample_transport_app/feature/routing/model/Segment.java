@@ -13,7 +13,7 @@ public class Segment implements Serializable {
     private Integer num_stops;
     private List<Stop> stops = new ArrayList<Stop>();
     private String travel_mode;
-    private Object description;
+    private String description;
     private String color;
     private String icon_url;
     private String polyline;
@@ -95,7 +95,7 @@ public class Segment implements Serializable {
      * @return
      *     The description
      */
-    public Object getDescription() {
+    public String getDescription() {
         return description;
     }
 
@@ -104,7 +104,7 @@ public class Segment implements Serializable {
      * @param description
      *     The description
      */
-    public void setDescription(Object description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+							xmlns:tools="http://schemas.android.com/tools"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:orientation="horizontal">
+
+	<LinearLayout
+			android:id="@+id/timesLayout"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:padding="5dp">
+
+		<TextView
+				android:id="@+id/segmentFirstStopTime"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="87dp"
+				tools:text="22:08"/>
+
+	</LinearLayout>
+
+	<View
+			android:id="@+id/segmentChain"
+			android:layout_width="10dp"
+			android:layout_height="match_parent"
+			tools:background="#555"/>
+
+	<LinearLayout
+			android:id="@+id/segmentInformationLayout"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:padding="5dp"
+			android:orientation="vertical">
+
+		<TextView
+				android:id="@+id/segmentFirstStopName"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				tools:text="Torstraße 103, 10119 Berlin, Deutschland"/>
+
+		<TextView
+				android:id="@+id/segmentTravelMode"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				tools:text="Subway"/>
+
+		<TextView
+				android:id="@+id/segmentName"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				tools:text="U2"/>
+
+		<TextView
+				android:id="@+id/segmentDescription"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				tools:text="S+U Potsdamer Platz"/>
+
+		<TextView
+				android:id="@+id/segmentDuration"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="20dp"
+				tools:text="7 stops, 13 min"/>
+
+	</LinearLayout>
+
+</LinearLayout>

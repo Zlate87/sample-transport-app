@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
+import com.zlate87.sample_transport_app.R;
 import com.zlate87.sample_transport_app.base.service.TimeHelperService;
 import com.zlate87.sample_transport_app.feature.routing.model.Price;
 import com.zlate87.sample_transport_app.feature.routing.model.Route;
@@ -14,6 +15,8 @@ import com.zlate87.sample_transport_app.feature.routing.viewmodel.PolylineData;
 import com.zlate87.sample_transport_app.feature.routing.viewmodel.RouteDetails;
 import com.zlate87.sample_transport_app.feature.routing.viewmodel.RouteMapData;
 import com.zlate87.sample_transport_app.feature.routing.viewmodel.RoutePreview;
+import com.zlate87.sample_transport_app.feature.routing.viewmodel.RouteSegment;
+import com.zlate87.sample_transport_app.feature.routing.viewmodel.SegmentStop;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,8 +73,53 @@ public class ViewModelMappingService {
 		routeDetails.setRoutePreview(routePreview);
 		RouteMapData routeMapData = mapToRouteMapData(route);
 		routeDetails.setRouteMapData(routeMapData);
-		// TODO: 1/1/2016 map the rest of the details
+		List<RouteSegment> routeSegments =  mapToRouteSegments(route);
+		routeDetails.getRouteSegments().addAll(routeSegments);
 		return routeDetails;
+	}
+
+	private List<RouteSegment> mapToRouteSegments(Route route) {
+		List<RouteSegment> routeSegments = new ArrayList<>();
+		List<Segment> segments = route.getSegments();
+		for (Segment segment : segments) {
+			RouteSegment routeSegment = new RouteSegment();
+			String name = segment.getName();
+			routeSegment.setName(name != null ? name : context.getString(R.string.routing_routeDetails_unknownStop));
+			routeSegment.setDescription(segment.getDescription());
+			routeSegment.setColor(segment.getColor());
+			routeSegment.setTravelMode(getStringTextFromStringId(segment.getTravel_mode()));
+			routeSegment.setDuration(calculateSegmentDuration(segment));
+			List<SegmentStop> segmentStops = mapToSegmentStops(segment);
+			routeSegment.getSegmentStops().addAll(segmentStops);
+			routeSegments.add(routeSegment);
+		}
+		return routeSegments;
+	}
+
+	private String calculateSegmentDuration(Segment segment) {
+		List<Stop> stops = segment.getStops();
+		Stop firstStop = stops.get(0);
+		Stop lastStop = stops.get(stops.size() - 1);
+		String durationInTime = timeHelperService.calculateDuration(firstStop.getDatetime(), lastStop.getDatetime());
+		if (stops.size() < 3) {
+			return durationInTime;
+		}
+
+		String stopsTranslation = context.getString(R.string.stops);
+		return String.format("%d %s, %s", stops.size() - 2, stopsTranslation, durationInTime);
+	}
+
+	private List<SegmentStop> mapToSegmentStops(Segment segment) {
+		List<SegmentStop> segmentStops = new ArrayList<>();
+		List<Stop> stops = segment.getStops();
+		for (Stop stop : stops) {
+			SegmentStop segmentStop = new SegmentStop();
+			String name = stop.getName();
+			segmentStop.setName(name != null ? name : context.getString(R.string.routing_routeDetails_unknownStop));
+			segmentStop.setTime(timeHelperService.justTime(stop.getDatetime()));
+			segmentStops.add(segmentStop);
+		}
+		return segmentStops;
 	}
 
 	private RouteMapData mapToRouteMapData(Route route) {
@@ -98,13 +146,13 @@ public class ViewModelMappingService {
 	}
 
 	@NonNull
-	private String getStringTextFromStringId(String typeStringKey) {
-		int id = context.getResources().getIdentifier(typeStringKey, "string", context.getApplicationInfo().packageName);
+	private String getStringTextFromStringId(String stringKey) {
+		int id = context.getResources().getIdentifier(stringKey, "string", context.getApplicationInfo().packageName);
 		if (id != 0) {
 			return context.getString(id);
 		} else {
-			Log.e(TAG, String.format("getStringTextFromStringId: typeStringKey [%s] not found", typeStringKey));
-			return typeStringKey;
+			Log.e(TAG, String.format("getStringTextFromStringId: stringKey [%s] not found", stringKey));
+			return stringKey;
 		}
 	}
 

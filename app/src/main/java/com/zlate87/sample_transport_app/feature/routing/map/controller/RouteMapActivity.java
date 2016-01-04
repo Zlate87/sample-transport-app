@@ -1,4 +1,4 @@
-package com.zlate87.sample_transport_app.feature.routing.details.controller;
+package com.zlate87.sample_transport_app.feature.routing.map.controller;
 
 import android.os.Bundle;
 

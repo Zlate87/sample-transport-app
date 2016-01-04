@@ -11,9 +11,9 @@ import com.zlate87.sample_transport_app.feature.routing.viewmodel.RouteDetails;
 import static com.zlate87.sample_transport_app.feature.routing.details.controller.RouteDetailsActivity.ROUTE_DETAILS_INTENT_EXTRA_KEY;
 
 /**
- * {@code ViewHolder} for a route.
+ * {@code ViewHolder} for a route preview.
  */
-public class RouteViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class RoutePreviewViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
 	private Context context;
 
@@ -26,7 +26,7 @@ public class RouteViewHolder extends RecyclerView.ViewHolder implements View.OnC
 	 *
 	 * @param itemView the view
 	 */
-	public RouteViewHolder(View itemView) {
+	public RoutePreviewViewHolder(View itemView) {
 		super(itemView);
 		itemView.setOnClickListener(this);
 		routePreviewView = (RoutePreviewView) itemView;
@@ -34,7 +34,7 @@ public class RouteViewHolder extends RecyclerView.ViewHolder implements View.OnC
 	}
 
 	/**
-	 * Re use the view
+	 * Re use the view.
 	 *
 	 * @param routeDetails the view model
 	 */

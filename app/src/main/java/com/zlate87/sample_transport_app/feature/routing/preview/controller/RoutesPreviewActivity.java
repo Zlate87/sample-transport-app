@@ -70,8 +70,8 @@ public class RoutesPreviewActivity extends BaseActivity {
 		RecyclerView routeRecyclerView = (RecyclerView) findViewById(R.id.routesRecyclerView);
 		LinearLayoutManager layoutManager = new LinearLayoutManager(this);
 		routeRecyclerView.setLayoutManager(layoutManager);
-		RoutesAdapter routesAdapter = new RoutesAdapter(routeDetailsList);
-		routeRecyclerView.setAdapter(routesAdapter);
+		RoutesPreviewAdapter routesPreviewAdapter = new RoutesPreviewAdapter(routeDetailsList);
+		routeRecyclerView.setAdapter(routesPreviewAdapter);
 	}
 
 	private void showValidationMessage(int messageStringId) {

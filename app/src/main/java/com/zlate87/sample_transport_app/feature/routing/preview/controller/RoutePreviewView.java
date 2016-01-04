@@ -14,13 +14,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.zlate87.sample_transport_app.R;
-import com.zlate87.sample_transport_app.feature.routing.details.controller.RouteMapActivity;
+import com.zlate87.sample_transport_app.feature.routing.map.controller.RouteMapActivity;
 import com.zlate87.sample_transport_app.feature.routing.viewmodel.RouteDetails;
 import com.zlate87.sample_transport_app.feature.routing.viewmodel.RoutePreview;
 
 import java.util.List;
 
-import static com.zlate87.sample_transport_app.feature.routing.details.controller.RouteMapActivity.ROUTE_MAP_INFO_INTENT_EXTRA_KEY;
+import static com.zlate87.sample_transport_app.feature.routing.map.controller.RouteMapActivity.ROUTE_MAP_INFO_INTENT_EXTRA_KEY;
 
 /**
  * Custom view class for rendering route details preview

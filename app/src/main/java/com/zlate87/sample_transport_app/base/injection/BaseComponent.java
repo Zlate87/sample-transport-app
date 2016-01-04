@@ -1,7 +1,7 @@
 package com.zlate87.sample_transport_app.base.injection;
 
 import com.zlate87.sample_transport_app.feature.routing.controller.LoadRouteActivity;
-import com.zlate87.sample_transport_app.feature.routing.details.controller.RouteMapActivity;
+import com.zlate87.sample_transport_app.feature.routing.map.controller.RouteMapActivity;
 import com.zlate87.sample_transport_app.feature.routing.preview.controller.RoutesPreviewActivity;
 
 /**

@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
 		xmlns:android="http://schemas.android.com/apk/res/android"
 		xmlns:tools="http://schemas.android.com/tools"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
+		android:orientation="vertical"
 		tools:context=".feature.routing.details.controller.RouteDetailsActivity">
 
 	<include
 			android:id="@+id/routePreview"
 			layout="@layout/routing_routes_list_element"/>
-</RelativeLayout>
+
+	<android.support.v7.widget.RecyclerView
+			android:id="@+id/routeSegmentsRecyclerView"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"/>
+</LinearLayout>

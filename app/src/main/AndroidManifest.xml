@@ -30,7 +30,7 @@
 		</activity>
 		<activity android:name=".feature.routing.details.controller.RouteDetailsActivity">
 		</activity>
-		<activity android:name=".feature.routing.details.controller.RouteMapActivity">
+		<activity android:name=".feature.routing.map.controller.RouteMapActivity">
 		</activity>
 	</application>
 
