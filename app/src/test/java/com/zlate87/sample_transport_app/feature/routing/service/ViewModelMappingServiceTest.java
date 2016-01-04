@@ -72,7 +72,7 @@ public class ViewModelMappingServiceTest {
 	private void assertFirstRouteSegments(List<RouteSegment> routeSegments) {
 		assertThat(routeSegments.size(), is(2));
 		RouteSegment firstRouteSegment = routeSegments.get(0);
-		assertThat(firstRouteSegment.getName(), is(nullValue()));
+		assertThat(firstRouteSegment.getName(), is("Unknown address"));
 		assertThat(firstRouteSegment.getDescription(), is(nullValue()));
 		assertThat(firstRouteSegment.getDuration(), is("8min"));
 		assertThat(firstRouteSegment.getColor(), is("#b1becc"));
