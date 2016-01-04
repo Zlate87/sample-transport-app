@@ -3,6 +3,9 @@
 		package="com.zlate87.sample_transport_app"
 		xmlns:android="http://schemas.android.com/apk/res/android">
 
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
 	<application
 			android:name=".base.FlavorApp"
 			android:allowBackup="true"
@@ -22,15 +25,31 @@
 				<category android:name="android.intent.category.LAUNCHER"/>
 			</intent-filter>
 		</activity>
-		<activity android:name=".feature.routing.preview.controller.RoutesPreviewActivity">
-		</activity>
+
 		<activity
 				android:name=".feature.routing.controller.LoadRouteActivity"
 				android:noHistory="true">
+			<meta-data
+					android:name="android.support.PARENT_ACTIVITY"
+					android:value="com.zlate87.sample_transport_app.feature.routing.controller.SelectRouteActivity" />
 		</activity>
+
+		<activity android:name=".feature.routing.preview.controller.RoutesPreviewActivity">
+			<meta-data
+					android:name="android.support.PARENT_ACTIVITY"
+					android:value="com.zlate87.sample_transport_app.feature.routing.controller.SelectRouteActivity" />
+		</activity>
+
 		<activity android:name=".feature.routing.details.controller.RouteDetailsActivity">
+			<meta-data
+					android:name="android.support.PARENT_ACTIVITY"
+					android:value="com.zlate87.sample_transport_app.feature.routing.controller.SelectRouteActivity" />
 		</activity>
+
 		<activity android:name=".feature.routing.map.controller.RouteMapActivity">
+			<meta-data
+					android:name="android.support.PARENT_ACTIVITY"
+					android:value="com.zlate87.sample_transport_app.feature.routing.controller.SelectRouteActivity" />
 		</activity>
 	</application>
 
