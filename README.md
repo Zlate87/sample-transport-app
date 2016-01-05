@@ -1,6 +1,10 @@
 # sample-transport-app
 [![Build Status](https://travis-ci.org/Zlate87/sample-transport-app.svg?branch=master)](https://travis-ci.org/Zlate87/sample-transport-app)
 
+![Screenshot](https://raw.githubusercontent.com/Zlate87/sample-transport-app/master/StartScreen.png)
+![Screenshot](https://raw.githubusercontent.com/Zlate87/sample-transport-app/master/RoutesPreviews.png)
+![Screenshot](https://raw.githubusercontent.com/Zlate87/sample-transport-app/master/RouteDetails.png)
+![Screenshot](https://raw.githubusercontent.com/Zlate87/sample-transport-app/master/RouteMap.png)
 ## Intro
 Sample application that showcases displaying of transportation data.
 
