@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+							xmlns:tool="http://schemas.android.com/tools"
 							android:layout_width="match_parent"
 							android:layout_height="match_parent"
-							android:orientation="vertical">
+							android:orientation="horizontal">
 
 	<android.support.v7.widget.RecyclerView
 			android:id="@+id/routesRecyclerView"
@@ -13,5 +14,8 @@
 			android:id="@+id/messageTextView"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
+			android:visibility="gone"
+			tool:text="@string/routing_validationMessage_noValidRoutesFound"
 			android:gravity="center" />
+
 </LinearLayout>

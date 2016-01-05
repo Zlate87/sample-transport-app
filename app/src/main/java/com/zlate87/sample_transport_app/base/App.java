@@ -41,4 +41,8 @@ public abstract class App extends Application {
 	public static App getInstance() {
 		return instance;
 	}
+
+	public void setComponent(BaseComponent component) {
+		this.component = component;
+	}
 }

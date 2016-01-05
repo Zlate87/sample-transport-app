@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import com.zlate87.sample_transport_app.R;
@@ -38,6 +39,9 @@ public class RoutesPreviewActivity extends BaseActivity {
 	@Inject
 	ViewModelMappingService viewModelMappingService;
 
+	private RecyclerView routesRecyclerView;
+	private TextView messageTextView;
+
 	@Override
 	protected int getContentViewId() {
 		return R.layout.routing_routes_preview_activity;
@@ -47,7 +51,13 @@ public class RoutesPreviewActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		App.getInstance().getComponent().inject(this);
+		setupView();
 		displayRoutes();
+	}
+
+	private void setupView() {
+		routesRecyclerView = (RecyclerView) findViewById(R.id.routesRecyclerView);
+		messageTextView = (TextView) findViewById(R.id.messageTextView);
 	}
 
 	private void displayRoutes() {
@@ -62,20 +72,19 @@ public class RoutesPreviewActivity extends BaseActivity {
 		}
 
 		List<RouteDetails> routeDetailsList = viewModelMappingService.map(routeResponse);
-
-		displayInRecyclerView(routeDetailsList);
+		displayRoutesInRecyclerView(routeDetailsList);
 	}
 
-	private void displayInRecyclerView(List<RouteDetails> routeDetailsList) {
-		RecyclerView routeRecyclerView = (RecyclerView) findViewById(R.id.routesRecyclerView);
+	private void displayRoutesInRecyclerView(List<RouteDetails> routeDetailsList) {
 		LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-		routeRecyclerView.setLayoutManager(layoutManager);
+		routesRecyclerView.setLayoutManager(layoutManager);
 		RoutesPreviewAdapter routesPreviewAdapter = new RoutesPreviewAdapter(routeDetailsList);
-		routeRecyclerView.setAdapter(routesPreviewAdapter);
+		routesRecyclerView.setAdapter(routesPreviewAdapter);
 	}
 
 	private void showValidationMessage(int messageStringId) {
-		TextView messageTextView = (TextView) findViewById(R.id.messageTextView);
+		routesRecyclerView.setVisibility(View.GONE);
+		messageTextView.setVisibility(View.VISIBLE);
 		messageTextView.setText(messageStringId);
 	}
 }
