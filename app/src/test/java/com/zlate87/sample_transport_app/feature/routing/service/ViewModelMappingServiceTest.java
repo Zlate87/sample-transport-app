@@ -1,5 +1,7 @@
 package com.zlate87.sample_transport_app.feature.routing.service;
 
+import android.graphics.Color;
+
 import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.Moshi;
 import com.zlate87.sample_transport_app.TestApp;
@@ -99,7 +101,7 @@ public class ViewModelMappingServiceTest {
 		PolylineData polylineData = polylineDataList.get(0);
 		assertThat(polylineDataList.size(), is(2));
 		assertThat(polylineData.getEncodedValue(), is("uvr_I{yxpABuAFcAp@yHvAwNr@iGPwAh@a@jAg@"));
-		assertThat(polylineData.getColor(), is("#b1becc"));
+		assertThat(polylineData.getColor(), is(Color.parseColor("#b1becc")));
 		assertThat(routeMapData.getStartPoint().getName(), is("Unknown address"));
 		assertThat(routeMapData.getStartPoint().getLatitude(), is(52.530227));
 		assertThat(routeMapData.getStartPoint().getLongitude(), is(13.403356));

@@ -1,6 +1,5 @@
 package com.zlate87.sample_transport_app.feature.routing.service;
 
-import android.graphics.Color;
 import android.support.annotation.NonNull;
 
 import com.google.android.gms.maps.CameraUpdate;
@@ -9,8 +8,6 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
-import com.zlate87.sample_transport_app.TestApp;
-import com.zlate87.sample_transport_app.TestBuildConfig;
 import com.zlate87.sample_transport_app.feature.routing.viewmodel.PolylineData;
 import com.zlate87.sample_transport_app.feature.routing.viewmodel.Position;
 import com.zlate87.sample_transport_app.feature.routing.viewmodel.RouteMapData;
@@ -18,15 +15,12 @@ import com.zlate87.sample_transport_app.feature.routing.viewmodel.RouteMapData;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.rule.PowerMockRule;
-import org.robolectric.RobolectricGradleTestRunner;
-import org.robolectric.annotation.Config;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
@@ -40,8 +34,6 @@ import static org.mockito.internal.verification.VerificationModeFactory.times;
 /**
  * Test class for {@code RouteMapService}.
  */
-@RunWith(RobolectricGradleTestRunner.class)
-@Config(constants = TestBuildConfig.class, sdk = 21, application = TestApp.class)
 @PowerMockIgnore({ "org.mockito.*", "org.robolectric.*", "android.*" })
 @PrepareForTest({GoogleMap.class, CameraUpdateFactory.class, CameraUpdate.class})
 public class RouteMapServiceTest {
@@ -157,12 +149,12 @@ public class RouteMapServiceTest {
 	public PolylineData preparePolylineData() {
 		PolylineData polylineData = new PolylineData();
 		polylineData.setEncodedValue("uvr_I{yxpABuAFcAp@yHvAwNr@iGPwAh@a@jAg@");
-		polylineData.setColor("#b1becc");
+		polylineData.setColor(123);
 		return polylineData;
 	}
 
 	public void assertPolylineOptions(PolylineOptions polylineOptions) {
-		assertThat(polylineOptions.getColor(), is(Color.parseColor("#b1becc")));
+		assertThat(polylineOptions.getColor(), is(123));
 		assertThat(polylineOptions.getPoints().size(), is(9));
 		assertThat(polylineOptions.getPoints().get(0).latitude, is(52.52987));
 		assertThat(polylineOptions.getPoints().get(0).longitude, is(13.403340000000002));

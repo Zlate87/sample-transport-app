@@ -1,6 +1,7 @@
 package com.zlate87.sample_transport_app.feature.routing.service;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -138,7 +139,7 @@ public class ViewModelMappingService {
 		for (Segment segment : segments) {
 			PolylineData polylineData = new PolylineData();
 			polylineData.setEncodedValue(segment.getPolyline());
-			polylineData.setColor(segment.getColor());
+			polylineData.setColor(Color.parseColor(segment.getColor()));
 			routeMapData.getPolylineDataList().add(polylineData);
 		}
 		return routeMapData;

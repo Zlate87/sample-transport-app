@@ -8,7 +8,7 @@ import java.io.Serializable;
 public class PolylineData implements Serializable {
 
 	private String encodedValue;
-	private String color;
+	private int color;
 
 	public String getEncodedValue() {
 		return encodedValue;
@@ -18,11 +18,11 @@ public class PolylineData implements Serializable {
 		this.encodedValue = encodedValue;
 	}
 
-	public String getColor() {
+	public int getColor() {
 		return color;
 	}
 
-	public void setColor(String color) {
+	public void setColor(int color) {
 		this.color = color;
 	}
 }

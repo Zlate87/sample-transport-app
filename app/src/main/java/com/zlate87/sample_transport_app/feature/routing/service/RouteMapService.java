@@ -72,7 +72,7 @@ public class RouteMapService {
 			latLngBoundsBuilder.include(latLng);
 		}
 		polyline.addAll(latLngList);
-		polyline.color(Color.parseColor(polylineData.getColor()));
+		polyline.color(polylineData.getColor());
 		return polyline;
 	}
 }
