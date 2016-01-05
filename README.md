@@ -58,19 +58,19 @@ NOTE - when running the espresso test, make sure that:
  ```
 
 ## Third party libraries
-[Android Support Libraries](http://developer.android.com/tools/support-library/index.html) is reason why needed?
-[Google Play Services](https://developers.google.com/android/guides/overview) for displaying a route on Google Maps.
-[Moshi](https://github.com/square/moshi) for JSON parsing.
-[Dagger 2](http://google.github.io/dagger/) for dependency injection.
-[Guava](https://github.com/google/guava) for reading files from file. I know that Guava is big, but that is not something proguard can't handle.
-[RxAndroid](https://github.com/ReactiveX/RxAndroid) for long running tasks instead of AsyncTask.
-[joda-time-android](https://github.com/dlew/joda-time-android) for date manipulatons.
-[Google Maps Android API utility library(android-maps-utils)](https://github.com/googlemaps/android-maps-utils)
-[Robolectric](http://robolectric.org/) for mocking the Android framework in JUnit tests
-[mockito](http://mockito.org/) for mocking.
-[Hamcrest](http://hamcrest.org/JavaHamcrest/) for matchers.
-[PowerMock](https://github.com/jayway/powermock) for mocking the final classes like GoogleMap when testing the route map service. 
-[Espresso](https://google.github.io/android-testing-support-library/docs/espresso/index.html) for UI tests.
+* [Android Support Libraries](http://developer.android.com/tools/support-library/index.html) is reason why needed?
+* [Google Play Services](https://developers.google.com/android/guides/overview) for displaying a route on Google Maps.
+* [Moshi](https://github.com/square/moshi) for JSON parsing.
+* [Dagger 2](http://google.github.io/dagger/) for dependency injection.
+* [Guava](https://github.com/google/guava) for reading files from file. I know that Guava is big, but that is not something proguard can't handle.
+* [RxAndroid](https://github.com/ReactiveX/RxAndroid) for long running tasks instead of AsyncTask.
+* [joda-time-android](https://github.com/dlew/joda-time-android) for date manipulatons.
+* [Google Maps Android API utility library(android-maps-utils)](https://github.com/googlemaps/android-maps-utils)
+* [Robolectric](http://robolectric.org/) for mocking the Android framework in JUnit tests
+* [mockito](http://mockito.org/) for mocking.
+* [Hamcrest](http://hamcrest.org/JavaHamcrest/) for matchers.
+* [PowerMock](https://github.com/jayway/powermock) for mocking the final classes like GoogleMap when testing the route map service. 
+* [Espresso](https://google.github.io/android-testing-support-library/docs/espresso/index.html) for UI tests.
 
 ## Next Steps
 For the next steps see the list of issues [here] (https://github.com/Zlate87/sample-transport-app/issues).
