@@ -1,6 +1,7 @@
 package com.zlate87.sample_transport_app;
 
 import com.zlate87.sample_transport_app.base.injection.BaseComponent;
+import com.zlate87.sample_transport_app.feature.routing.details.controller.RouteDetailsActivityTest;
 import com.zlate87.sample_transport_app.feature.routing.map.controller.RouteMapActivityTest;
 import com.zlate87.sample_transport_app.feature.routing.preview.controller.RoutesPreviewActivityTest;
 
@@ -28,4 +29,11 @@ public interface TestComponent extends BaseComponent {
 	 * @param target the target
 	 */
 	void inject(RouteMapActivityTest target);
+
+	/**
+	 * Dagger 2 inject method for a given target.
+	 *
+	 * @param target the target
+	 */
+	void inject(RouteDetailsActivityTest target);
 }

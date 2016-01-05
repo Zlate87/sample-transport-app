@@ -44,6 +44,4 @@ public class RouteDetailsActivity extends BaseActivity {
 		segmentsRecyclerView.setAdapter(routeSegmentsAdapter);
 	}
 
-
-
 }

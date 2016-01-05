@@ -2,14 +2,10 @@ package com.zlate87.sample_transport_app.feature.routing.preview.controller;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
-import android.support.v7.widget.RecyclerView;
 import android.test.suitebuilder.annotation.LargeTest;
-import android.view.View;
-import android.widget.LinearLayout;
 
 import com.zlate87.sample_transport_app.AbstractActivityTest;
 import com.zlate87.sample_transport_app.R;
@@ -20,9 +16,6 @@ import com.zlate87.sample_transport_app.feature.routing.service.ViewModelMapping
 import com.zlate87.sample_transport_app.feature.routing.viewmodel.RouteDetails;
 import com.zlate87.sample_transport_app.feature.routing.viewmodel.RoutePreview;
 
-import org.hamcrest.Description;
-import org.hamcrest.Matcher;
-import org.hamcrest.TypeSafeMatcher;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -39,6 +32,7 @@ import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
+import static com.zlate87.sample_transport_app.CustomMatchers.dynamicView;
 import static com.zlate87.sample_transport_app.CustomMatchers.viewAtPositionInRecyclerView;
 import static com.zlate87.sample_transport_app.CustomMatchers.withDrawable;
 import static org.mockito.BDDMockito.given;
@@ -98,13 +92,13 @@ public class RoutesPreviewActivityTest extends AbstractActivityTest {
 						.check(matches(withText("15:15 -> 15:30")));
 		onView(viewAtPositionInRecyclerView(R.id.routesRecyclerView, 0, R.id.duration))
 						.check(matches(withText("15 min")));
-		onView(iconAttributeView(R.id.routesRecyclerView, 0, R.id.iconsLinearLayout, 0))
+		onView(dynamicView(R.id.routesRecyclerView, 0, R.id.iconsLinearLayout, 0))
 						.check(matches(withDrawable(R.mipmap.walking)));
-		onView(iconAttributeView(R.id.routesRecyclerView, 0, R.id.iconsLinearLayout, 1))
+		onView(dynamicView(R.id.routesRecyclerView, 0, R.id.iconsLinearLayout, 1))
 						.check(matches(withDrawable(R.mipmap.bus)));
-		onView(iconAttributeView(R.id.routesRecyclerView, 0, R.id.iconsTextLinearLayout, 0))
+		onView(dynamicView(R.id.routesRecyclerView, 0, R.id.iconsTextLinearLayout, 0))
 						.check(matches(withText("")));
-		onView(iconAttributeView(R.id.routesRecyclerView, 0, R.id.iconsTextLinearLayout, 1))
+		onView(dynamicView(R.id.routesRecyclerView, 0, R.id.iconsTextLinearLayout, 1))
 						.check(matches(withText("U2")));
 	}
 
@@ -135,18 +129,7 @@ public class RoutesPreviewActivityTest extends AbstractActivityTest {
 	private List<RouteDetails> prepareRouteDetailsList() {
 		List<RouteDetails> routeDetailsList = new ArrayList<>();
 		RouteDetails routeDetails = new RouteDetails();
-		RoutePreview routePreview = new RoutePreview();
-		routePreview.setType("Public Transport");
-		routePreview.setDuration("15 min");
-		routePreview.setLeaveTime("15:15");
-		routePreview.setArriveTime("15:30");
-		routePreview.setPrice("EUR 3.5");
-		routePreview.getIcons().add("walking");
-		routePreview.getIcons().add("bus");
-		routePreview.getIconsText().add(null);
-		routePreview.getIconsText().add("U2");
-		routePreview.getIconsColors().add("#00FF00");
-		routePreview.getIconsColors().add("#0000FF");
+		RoutePreview routePreview = prepareRoutePreview();
 		routeDetails.setRoutePreview(routePreview);
 		routeDetailsList.add(routeDetails);
 		routeDetailsList.add(routeDetails);
@@ -182,52 +165,5 @@ public class RoutesPreviewActivityTest extends AbstractActivityTest {
 	}
 
 
-	/**
-	 * Matches icon attribute view at route preview view in a recycler view for a given:
-	 *
-	 * @param recyclerViewId the id of the recycler view
-	 * @param viewPosition   the position index of the route preview view in the recycler view
-	 * @param iconsLayout    the id of the layout for the icon attributes
-	 * @param iconPosition   the icon position inside the icons layout
-	 * @return the matcher
-	 */
-	public static Matcher<View> iconAttributeView(final int recyclerViewId,
-																								 final int viewPosition,
-																								 final int iconsLayout,
-																								 final int iconPosition) {
-		return new TypeSafeMatcher<View>() {
-			Resources resources = null;
-			View routePreviewView;
-
-			public void describeTo(Description description) {
-				String idDescription = Integer.toString(recyclerViewId);
-				if (resources != null) {
-					try {
-						idDescription = this.resources.getResourceName(recyclerViewId);
-					} catch (Resources.NotFoundException var4) {
-						idDescription = String.format("%d (resource name not found)", recyclerViewId);
-					}
-				}
-				description.appendText("with id: " + idDescription);
-			}
-
-			public boolean matchesSafely(View view) {
-				resources = view.getResources();
-
-				if (routePreviewView == null) {
-					RecyclerView recyclerView = (RecyclerView) view.getRootView().findViewById(recyclerViewId);
-					if (recyclerView != null && recyclerView.getId() == recyclerViewId) {
-						routePreviewView = recyclerView.getChildAt(viewPosition);
-					} else {
-						return false;
-					}
-				}
-
-				LinearLayout iconsLinearLayout = (LinearLayout) routePreviewView.findViewById(iconsLayout);
-				View targetView = iconsLinearLayout.getChildAt(iconPosition);
-				return view == targetView;
-			}
-		};
-	}
 
 }
