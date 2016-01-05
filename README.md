@@ -1,4 +1,4 @@
-# sample-transport-app
+# Sample Transport App
 [![Build Status](https://travis-ci.org/Zlate87/sample-transport-app.svg?branch=master)](https://travis-ci.org/Zlate87/sample-transport-app)
 
 ![Screenshot](https://raw.githubusercontent.com/Zlate87/sample-transport-app/master/StartScreen.png)
