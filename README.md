@@ -58,7 +58,7 @@ NOTE - when running the espresso test, make sure that:
  ```
 
 ## Third party libraries
-* [Android Support Libraries](http://developer.android.com/tools/support-library/index.html) is reason why needed?
+* [Android Support Libraries](http://developer.android.com/tools/support-library/index.html) for backward compatibility
 * [Google Play Services](https://developers.google.com/android/guides/overview) for displaying a route on Google Maps.
 * [Moshi](https://github.com/square/moshi) for JSON parsing.
 * [Dagger 2](http://google.github.io/dagger/) for dependency injection.
