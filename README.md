@@ -37,7 +37,7 @@ The applicaiton has two flawours:
 
 * The applicaiton is using Google Maps, and for it to work it needs Maps API key. The API key is commited (see [google_maps_api.xml](https://github.com/Zlate87/sample-transport-app/blob/master/app/src/main/res/values/google_maps_api.xml)), but it works only if the applicaiton is signed with the signing key that the API key is for. The signing key is not commited (it is a sicret :)). So in order for the maps to work properly you will need to generate a new API key that will be pared to your signing key. More about how to do this [here](https://developers.google.com/maps/documentation/android-api/signup?hl=en).
 
-### Tests
+### Testing
 The applicaiton has JUnit tests that focuse on testing the services and Espresso test that focuse on testing the activities and UI elements by mocking the services. At the moment there are no end-to-end tests.
 
 #### JUnit tests
@@ -58,5 +58,19 @@ NOTE - when running the espresso test, make sure that:
  ```
 
 ## Third party libraries
+[Android Support Libraries](http://developer.android.com/tools/support-library/index.html) is reason why needed?
+[Google Play Services](https://developers.google.com/android/guides/overview) for displaying a route on Google Maps.
+[Moshi](https://github.com/square/moshi) for JSON parsing.
+[Dagger 2](http://google.github.io/dagger/) for dependency injection.
+[Guava](https://github.com/google/guava) for reading files from file. I know that Guava is big, but that is not something proguard can't handle.
+[RxAndroid](https://github.com/ReactiveX/RxAndroid) for long running tasks instead of AsyncTask.
+[joda-time-android](https://github.com/dlew/joda-time-android) for date manipulatons.
+[Google Maps Android API utility library(android-maps-utils)](https://github.com/googlemaps/android-maps-utils)
+[Robolectric](http://robolectric.org/) for mocking the Android framework in JUnit tests
+[mockito](http://mockito.org/) for mocking.
+[Hamcrest](http://hamcrest.org/JavaHamcrest/) for matchers.
+[PowerMock](https://github.com/jayway/powermock) for mocking the final classes like GoogleMap when testing the route map service. 
+[Espresso](https://google.github.io/android-testing-support-library/docs/espresso/index.html) for UI tests.
+
 ## Next Steps
 For the next steps see the list of issues [here] (https://github.com/Zlate87/sample-transport-app/issues).
