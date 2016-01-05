@@ -87,6 +87,10 @@ dependencies {
 	testCompile "org.mockito:mockito-core:$orgMockito_mockitoCore"
 	testCompile "org.hamcrest:hamcrest-core:$orgHamcrest_hamcrestCore"
 	testCompile "joda-time:joda-time:$jodaTime"
+	testCompile "org.powermock:powermock-module-junit4:$orgPowermock"
+	testCompile "org.powermock:powermock-module-junit4-rule:$orgPowermock"
+	testCompile "org.powermock:powermock-api-mockito:$orgPowermock"
+	testCompile "org.powermock:powermock-classloading-xstream:$orgPowermock"
 
 	// Android instrument test dependencies
 	androidTestCompile "com.android.support:support-annotations:$comAndroidSupport"

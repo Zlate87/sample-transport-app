@@ -44,12 +44,23 @@ public class RouteMapService {
 		});
 	}
 
-	private void addMarker(Position position, GoogleMap googleMap) {
+	/**
+	 * Adds a marker to map.
+	 * @param position the marker position
+	 * @param googleMap the map
+	 */
+	public void addMarker(Position position, GoogleMap googleMap) {
 		googleMap.addMarker(new MarkerOptions()
 						.position(new LatLng(position.getLatitude(), position.getLongitude()))
 						.title(position.getName()));
 	}
 
+	/**
+	 * Gets polyline options for polyline.
+	 * @param latLngBoundsBuilder the bounds
+	 * @param polylineData the polyline
+	 * @return the polyline options
+	 */
 	public PolylineOptions getPolylineOptions(LatLngBounds.Builder latLngBoundsBuilder, PolylineData polylineData) {
 		PolylineOptions polyline = new PolylineOptions();
 		String encodedValue = polylineData.getEncodedValue();
