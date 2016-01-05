@@ -54,7 +54,7 @@ gradlew connectedAndroidTest
 * The animations are disabled on the device where the tests are running. More info [here](https://google.github.io/android-testing-support-library/docs/espresso/setup/index.html#running-tests).
 * If running the tests on Android 6.0 or up, the ACCESS_FINE_LOCATION permission is granted. This can be done manually of using adb command:
 ```
- adb shell pm grant "com.zlate87.sample_transport_app.[FLAVOR_NAME]" android.permission.android.permission.ACCESS_FINE_LOCATION
+ adb shell pm grant "com.zlate87.sample_transport_app.[FLAVOR_NAME]" android.permission.ACCESS_FINE_LOCATION
  ```
 
 ## Third party libraries
