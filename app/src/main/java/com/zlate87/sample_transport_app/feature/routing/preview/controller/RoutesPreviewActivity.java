@@ -23,7 +23,6 @@ import javax.inject.Inject;
 /**
  * Activity responsible for displaying a list of routes.
  */
-// TODO: 1/1/2016 think about improving the longing
 public class RoutesPreviewActivity extends BaseActivity {
 
 	private static final String TAG = RoutesPreviewActivity.class.getSimpleName();

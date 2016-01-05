@@ -54,7 +54,6 @@ public class LoadRouteActivity extends BaseActivity {
 		@Override
 		public void call(Throwable throwable) {
 			Log.e(TAG, "routeResponseErrorAction: ", throwable);
-			// TODO: 1/1/2016 Show error to the user
 		}
 	};
 
@@ -75,8 +74,6 @@ public class LoadRouteActivity extends BaseActivity {
 						.observeOn(AndroidSchedulers.mainThread())
 						.doOnError(routeResponseErrorAction)
 						.subscribe(routeResponseAction);
-
-		// TODO: 1/1/2016 handle if activity is closed before the route is loaded
 	}
 
 }

@@ -62,7 +62,6 @@ public class RouteSegmentViewHolder extends RecyclerView.ViewHolder implements V
 
 	@Override
 	public void onClick(View v) {
-		// TODO: 1/4/2016 animate
 		segment.setIsExpanded(!segment.isExpanded());
 		stopsTimesLinearLayout.setVisibility(segment.isExpanded() ? View.VISIBLE : View.GONE);
 		stopsNamesLinearLayout.setVisibility(segment.isExpanded() ? View.VISIBLE : View.GONE);

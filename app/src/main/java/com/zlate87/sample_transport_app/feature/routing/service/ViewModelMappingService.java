@@ -68,7 +68,6 @@ public class ViewModelMappingService {
 	}
 
 	@NonNull
-	// TODO: 1/3/2016 optimizing the mapper (do not loop the same arrays multiple times)
 	private RouteDetails mapToRouteDetails(Route route) {
 		RouteDetails routeDetails = new RouteDetails();
 		RoutePreview routePreview = mapToRoutePreview(route);
