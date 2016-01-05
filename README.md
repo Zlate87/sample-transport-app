@@ -20,7 +20,7 @@ It shows:
 * Working with flavors.
 * ...
 
-It dosen't show:
+It doesn’t show:
 * As you can see from the screenshots, a fancy UI.
 * Animations 
 * Reading data from backend
@@ -29,13 +29,13 @@ It dosen't show:
 ## Developer Guide
 The application has two flavors:
 * dummyData - It contains flavors specific routing service that will always return a dummy route from JSON file that is pre-bundled with the application. This flavors allows testing independent of a server
-* production - It is intended to have specific routing service that will retreive data from a server for given routing parameters. However at the moment the routing service is not implemented and it throws a RuntimeException and crashes the application.
+* production - It is intended to have specific routing service that will retrieve data from a server for given routing parameters. However at the moment the routing service is not implemented and it throws a RuntimeException and crashes the application.
  
 
 ### Building
-* The application is using Dagger 2 for dependency injection. Sine Dagger 2 works at compile time, some classes need to be generated. These classes are generated automatically and are not commited. Because of this, the project must be built once after it is cloned or Android Studio will show errors (missing Dagger generated classes).
+* The application is using Dagger 2 for dependency injection. Sine Dagger 2 works at compile time, some classes need to be generated. These classes are generated automatically and are not committed. Because of this, the project must be built once after it is cloned or Android Studio will show errors (missing Dagger generated classes).
 
-* The application is using Google Maps, and for it to work it needs Maps API key. The API key is commited (see [google_maps_api.xml](https://github.com/Zlate87/sample-transport-app/blob/master/app/src/main/res/values/google_maps_api.xml)), but it works only if the application is signed with the signing key that the API key is for. The signing key is not commited (it is a secret :)). So in order for the maps to work properly you will need to generate a new API key that will be pared to your signing key. More about how to do this [here](https://developers.google.com/maps/documentation/android-api/signup?hl=en).
+* The application is using Google Maps, and for it to work it needs Maps API key. The API key is committed (see [google_maps_api.xml](https://github.com/Zlate87/sample-transport-app/blob/master/app/src/main/res/values/google_maps_api.xml)), but it works only if the application is signed with the signing key that the API key is for. The signing key is not committed (it is a secret :)). So in order for the maps to work properly you will need to generate a new API key that will be pared to your signing key. More about how to do this [here](https://developers.google.com/maps/documentation/android-api/signup?hl=en).
 
 ### Testing
 The application has JUnit tests that focuses  on testing the services and Espresso test that focuses  on testing the activities and UI elements by mocking the services. At the moment there are no end-to-end tests.
