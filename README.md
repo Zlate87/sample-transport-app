@@ -21,9 +21,9 @@ It shows:
 * ...
 
 It doesn’t show:
-* As you can see from the screenshots, a fancy UI.
-* Animations 
-* Reading data from backend
+* As you can see from the screenshots, how to create a fancy UI.
+* How to implement animations 
+* How to reading data from backend
 * ...
 
 ## Developer Guide
