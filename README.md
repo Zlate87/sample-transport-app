@@ -65,7 +65,7 @@ NOTE - when running the espresso test, make sure that:
 * [Guava](https://github.com/google/guava) for reading files from file. I know that Guava is big, but that is not something proguard can't handle.
 * [RxAndroid](https://github.com/ReactiveX/RxAndroid) for long running tasks instead of AsyncTask.
 * [joda-time-android](https://github.com/dlew/joda-time-android) for date manipulations.
-* [Google Maps Android API utility library(android-maps-utils)](https://github.com/googlemaps/android-maps-utils)
+* [Google Maps Android API utility library (android-maps-utils)](https://github.com/googlemaps/android-maps-utils)
 * [Robolectric](http://robolectric.org/) for mocking the Android framework in JUnit tests
 * [mockito](http://mockito.org/) for mocking.
 * [Hamcrest](http://hamcrest.org/JavaHamcrest/) for matchers.
