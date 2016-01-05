@@ -1,14 +1,19 @@
 package com.zlate87.sample_transport_app.feature.routing.map.controller;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.zlate87.sample_transport_app.R;
 import com.zlate87.sample_transport_app.base.App;
 import com.zlate87.sample_transport_app.base.controller.BaseActivity;
-import com.zlate87.sample_transport_app.feature.routing.service.PolylineService;
+import com.zlate87.sample_transport_app.feature.routing.service.RouteMapService;
 import com.zlate87.sample_transport_app.feature.routing.viewmodel.RouteMapData;
 
 import javax.inject.Inject;
@@ -22,13 +27,15 @@ public class RouteMapActivity extends BaseActivity implements OnMapReadyCallback
 	 * Intent extra key for the {@code RouteDetails} that should be used.
 	 */
 	public static final String ROUTE_MAP_INFO_INTENT_EXTRA_KEY = "ROUTE_MAP_INFO_INTENT_EXTRA_KEY";
+	private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
+	private static final String HINT_KEY = "RouteMapActivity_HINT_KEY";
 
 	@Inject
-	PolylineService polylineService;
+	RouteMapService routeMapService;
 
 	private RouteMapData routeMapInfo;
 
-	private MapView mapView;
+	private GoogleMap googleMap;
 
 	@Override
 	protected int getContentViewId() {
@@ -39,47 +46,43 @@ public class RouteMapActivity extends BaseActivity implements OnMapReadyCallback
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		App.getInstance().getComponent().inject(this);
-
 		routeMapInfo = (RouteMapData) getIntent().getExtras().get(ROUTE_MAP_INFO_INTENT_EXTRA_KEY);
-
-		mapView = (MapView) findViewById(R.id.mapView);
-		mapView.onCreate(savedInstanceState);
-		mapView.getMapAsync(this);
+		showHint(HINT_KEY, R.id.coordinatorLayout, R.string.routing_routeMap_pinHint);
+		prepareMap();
 	}
 
-	@Override
-	protected void onResume() {
-		super.onResume();
-		mapView.onResume();
-	}
-
-	@Override
-	protected void onPause() {
-		mapView.onPause();
-		super.onPause();
-	}
-
-	@Override
-	protected void onDestroy() {
-		mapView.onDestroy();
-		super.onDestroy();
-	}
-
-	@Override
-	public void onLowMemory() {
-		super.onLowMemory();
-		mapView.onLowMemory();
-	}
-
-	@Override
-	public void onSaveInstanceState(Bundle outState) {
-		super.onSaveInstanceState(outState);
-		mapView.onSaveInstanceState(outState);
+	private void prepareMap() {
+		SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+		mapFragment.getMapAsync(this);
 	}
 
 	@Override
 	public void onMapReady(GoogleMap googleMap) {
-		polylineService.addRoutePolylineToMap(googleMap, routeMapInfo);
+		this.googleMap = googleMap;
+		enableMyLocationOnMap();
+		routeMapService.addRouteToMap(googleMap, routeMapInfo);
+	}
+
+	public void enableMyLocationOnMap() {
+		if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+						!= PackageManager.PERMISSION_GRANTED) {
+				ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+								PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION);
+			return;
+		}
+		googleMap.setMyLocationEnabled(true);
+	}
+
+	@Override
+	public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults) {
+		switch (requestCode) {
+			case PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION: {
+				if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+					enableMyLocationOnMap();
+				}
+				break;
+			}
+		}
 	}
 
 }

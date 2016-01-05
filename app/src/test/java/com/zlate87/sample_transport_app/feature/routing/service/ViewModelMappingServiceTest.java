@@ -100,6 +100,12 @@ public class ViewModelMappingServiceTest {
 		assertThat(polylineDataList.size(), is(2));
 		assertThat(polylineData.getEncodedValue(), is("uvr_I{yxpABuAFcAp@yHvAwNr@iGPwAh@a@jAg@"));
 		assertThat(polylineData.getColor(), is("#b1becc"));
+		assertThat(routeMapData.getStartPoint().getName(), is("Unknown address"));
+		assertThat(routeMapData.getStartPoint().getLatitude(), is(52.530227));
+		assertThat(routeMapData.getStartPoint().getLongitude(), is(13.403356));
+		assertThat(routeMapData.getEndPoint().getName(), is("S+U Potsdamer Platz"));
+		assertThat(routeMapData.getEndPoint().getLatitude(), is(52.509067));
+		assertThat(routeMapData.getEndPoint().getLongitude(), is(13.37798));
 	}
 
 	private void assertFirstRoutePreview(RoutePreview routePreview) {

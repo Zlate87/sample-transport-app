@@ -12,6 +12,7 @@ import com.zlate87.sample_transport_app.feature.routing.model.RouteResponse;
 import com.zlate87.sample_transport_app.feature.routing.model.Segment;
 import com.zlate87.sample_transport_app.feature.routing.model.Stop;
 import com.zlate87.sample_transport_app.feature.routing.viewmodel.PolylineData;
+import com.zlate87.sample_transport_app.feature.routing.viewmodel.Position;
 import com.zlate87.sample_transport_app.feature.routing.viewmodel.RouteDetails;
 import com.zlate87.sample_transport_app.feature.routing.viewmodel.RouteMapData;
 import com.zlate87.sample_transport_app.feature.routing.viewmodel.RoutePreview;
@@ -124,6 +125,16 @@ public class ViewModelMappingService {
 	private RouteMapData mapToRouteMapData(Route route) {
 		RouteMapData routeMapData = new RouteMapData();
 		List<Segment> segments = route.getSegments();
+
+		Stop firstStop = segments.get(0).getStops().get(0);
+		Position startPosition = mapToPosition(firstStop);
+		routeMapData.setStartPoint(startPosition);
+
+		List<Stop> stopsOfLastSegment = segments.get(segments.size() - 1).getStops();
+		Stop lastStop = stopsOfLastSegment.get(stopsOfLastSegment.size() - 1);
+		Position endPosition = mapToPosition(lastStop);
+		routeMapData.setEndPoint(endPosition);
+
 		for (Segment segment : segments) {
 			PolylineData polylineData = new PolylineData();
 			polylineData.setEncodedValue(segment.getPolyline());
@@ -131,6 +142,16 @@ public class ViewModelMappingService {
 			routeMapData.getPolylineDataList().add(polylineData);
 		}
 		return routeMapData;
+	}
+
+	@NonNull
+	private Position mapToPosition(Stop stop) {
+		Position position = new Position();
+		String name = stop.getName();
+		position.setName(name != null ? name : context.getString(R.string.routing_routeDetails_unknownStop));
+		position.setLatitude(stop.getLat());
+		position.setLongitude(stop.getLng());
+		return position;
 	}
 
 	@NonNull

@@ -6,25 +6,27 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.maps.android.PolyUtil;
 import com.zlate87.sample_transport_app.feature.routing.viewmodel.PolylineData;
+import com.zlate87.sample_transport_app.feature.routing.viewmodel.Position;
 import com.zlate87.sample_transport_app.feature.routing.viewmodel.RouteMapData;
 
 import java.util.List;
 
 /**
- * Services class for working with polylines.
+ * Services class for working with the route map.
  */
-public class PolylineService {
+public class RouteMapService {
 
 	/**
-	 * Adds the route polyline to a map.
+	 * Adds the route to the map.
 	 *
 	 * @param googleMap    the map
-	 * @param routeMapInfo the view model containing the information for the polyline
+	 * @param routeMapInfo the view model containing the information for the route
 	 */
-	public void addRoutePolylineToMap(final GoogleMap googleMap, RouteMapData routeMapInfo) {
+	public void addRouteToMap(final GoogleMap googleMap, final RouteMapData routeMapInfo) {
 		final LatLngBounds.Builder latLngBounds = new LatLngBounds.Builder();
 		for (PolylineData polylineData : routeMapInfo.getPolylineDataList()) {
 			PolylineOptions polyline = getPolylineOptions(latLngBounds, polylineData);
@@ -35,9 +37,17 @@ public class PolylineService {
 		googleMap.setOnMapLoadedCallback(new GoogleMap.OnMapLoadedCallback() {
 			@Override
 			public void onMapLoaded() {
-				googleMap.animateCamera(CameraUpdateFactory.newLatLngBounds(latLngBounds.build(), 50));
+				addMarker(routeMapInfo.getStartPoint(), googleMap);
+				addMarker(routeMapInfo.getEndPoint(), googleMap);
+				googleMap.animateCamera(CameraUpdateFactory.newLatLngBounds(latLngBounds.build(), 200));
 			}
 		});
+	}
+
+	private void addMarker(Position position, GoogleMap googleMap) {
+		googleMap.addMarker(new MarkerOptions()
+						.position(new LatLng(position.getLatitude(), position.getLongitude()))
+						.title(position.getName()));
 	}
 
 	public PolylineOptions getPolylineOptions(LatLngBounds.Builder latLngBoundsBuilder, PolylineData polylineData) {

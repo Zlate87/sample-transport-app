@@ -34,4 +34,9 @@ public class SelectRouteActivity extends BaseActivity {
 		loadRoutesActivityIntent.putExtra(ROUTE_QUERY_PARAMETERS_INTENT_EXTRA_KEY, routeQueryParameters);
 		startActivity(loadRoutesActivityIntent);
 	}
+
+	@Override
+	protected void setupUpButton() {
+		// do nothing (do not set the up button)
+	}
 }

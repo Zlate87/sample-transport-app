@@ -4,7 +4,6 @@ import android.graphics.Color;
 
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.PolylineOptions;
-import com.zlate87.sample_transport_app.BuildConfig;
 import com.zlate87.sample_transport_app.TestApp;
 import com.zlate87.sample_transport_app.TestBuildConfig;
 import com.zlate87.sample_transport_app.feature.routing.viewmodel.PolylineData;
@@ -19,17 +18,17 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
- * Test class for {@code PolylineService}.
+ * Test class for {@code RouteMapService}.
  */
 @RunWith(RobolectricGradleTestRunner.class)
 @Config(constants = TestBuildConfig.class, sdk = 21, application = TestApp.class)
-public class PolylineServiceTest {
+public class RouteMapServiceTest {
 
-	private PolylineService polylineService;
+	private RouteMapService routeMapService;
 
 	@Before
 	public void setUp() {
-		polylineService = new PolylineService();
+		routeMapService = new RouteMapService();
 	}
 
 	@Test
@@ -41,7 +40,7 @@ public class PolylineServiceTest {
 		LatLngBounds.Builder latLngBoundsBuilder = new LatLngBounds.Builder();
 
 		// when
-		PolylineOptions polylineOptions = polylineService.getPolylineOptions(latLngBoundsBuilder, polylineData);
+		PolylineOptions polylineOptions = routeMapService.getPolylineOptions(latLngBoundsBuilder, polylineData);
 
 		// then
 		assertPolylineOptions(polylineOptions);

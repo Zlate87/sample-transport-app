@@ -1,11 +1,8 @@
 package com.zlate87.sample_transport_app.feature.routing.details.controller;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 
 import com.zlate87.sample_transport_app.R;
 import com.zlate87.sample_transport_app.base.controller.BaseActivity;
@@ -21,8 +18,7 @@ public class RouteDetailsActivity extends BaseActivity {
 	 * Intent extra key for the {@code RouteDetails} that should be used.
 	 */
 	public static final String ROUTE_DETAILS_INTENT_EXTRA_KEY = "ROUTE_DETAILS_INTENT_EXTRA_KEY";
-	public static final String SHARED_PREFERENCES_FILE = "SHARED_PREFERENCES_FILE";
-	public static final String IS_HINT_PRESENTED_KEY = "isHintPresentedKey";
+	private static final String HINT_KEY = "RouteDetailsActivity_HINT_KEY";
 
 	private RouteDetails routeDetails;
 
@@ -35,7 +31,7 @@ public class RouteDetailsActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		routeDetails = (RouteDetails) getIntent().getExtras().get(ROUTE_DETAILS_INTENT_EXTRA_KEY);
-		showHint();
+		showHint(HINT_KEY, R.id.coordinatorLayout, R.string.routing_routeDetails_segmentExpansionHint);
 		displayRouteDetails();
 	}
 
@@ -48,23 +44,6 @@ public class RouteDetailsActivity extends BaseActivity {
 		segmentsRecyclerView.setAdapter(routeSegmentsAdapter);
 	}
 
-	private void showHint() {
-		final SharedPreferences prefs = getSharedPreferences(SHARED_PREFERENCES_FILE, MODE_PRIVATE);
-		boolean isHintPresented = prefs.getBoolean(IS_HINT_PRESENTED_KEY, false);
-		if (!isHintPresented) {
-			View coordinatorLayout = findViewById(R.id.coordinatorLayout);
-			int messageId = R.string.routing_routeDetails_segmentExpansionHint;
-			final Snackbar snackbar = Snackbar.make(coordinatorLayout, messageId, Snackbar.LENGTH_INDEFINITE);
-			snackbar.setAction(R.string.doNotShowAgain, new View.OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					SharedPreferences.Editor editor = prefs.edit();
-					editor.putBoolean(IS_HINT_PRESENTED_KEY, true);
-					editor.apply();
-				}
-			});
-			snackbar.show();
-		}
-	}
+
 
 }
