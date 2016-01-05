@@ -50,7 +50,7 @@ The application comes with espresso tests (more information about espresso [here
 ```
 gradlew connectedAndroidTest
 ```
-NOTE - when running the espresso tests, make sure that: 
+**NOTE**:  when running the espresso tests, make sure that: 
 * The animations are disabled on the device where the tests are running. More info [here](https://google.github.io/android-testing-support-library/docs/espresso/setup/index.html#running-tests).
 * If running the tests on Android 6.0 or up, the ACCESS_FINE_LOCATION permission is granted. This can be done manually of using adb command:
 ```
